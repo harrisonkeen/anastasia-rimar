@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anastasia Rimar — Actress</title>
+<meta name="description" content="Anastasia Rimar, actress. Range, photos and credits.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --space: #05060f;     /* the very top of the sky */
+    --night: #141a36;     /* night band */
+    --gold: #e2bb7c;      /* her name, horizons on dark */
+    --dawn: #f0b98e;      /* sunrise glow */
+    --petal: #fbf3ee;     /* credits card */
+    --sun: #ffe9c2;       /* the very bottom of the sky */
+    --ink: #2b2026;       /* text on light */
+    --soft: #6e5a5f;      /* secondary text on light */
+    --link: #9a5a45;      /* links on light */
+    --mist: #eef0f6;      /* text on the night sky */
+    --gutter: clamp(16px, 5vw, 72px);
+    --text: "Newsreader", Georgia, serif;
+    --display: "Fraunces", Georgia, serif;
+  }
+  html { background: var(--space); scroll-behavior: smooth; }
+  html.at-end { background: var(--sun); }
+  * { box-sizing: border-box; }
+  body { margin: 0; position: relative; font: 400 18px/1.65 var(--text); color: var(--mist); -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  /* ---------- the sky: one gradient for the whole page, space at the top, sunrise at the bottom ---------- */
+  .sky { position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background: linear-gradient(to bottom, var(--space) 0, #0a0d22 9%, var(--night) 22%, #1f2c5c 34%, #34508c 46%, #6383bd 57%, #a99ac2 67%, #e6aeb0 76%, #f4bf97 86%, #fbd6a6 93%, var(--sun) 100%); }
+  .sky-fx { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+  .hero, main, footer { position: relative; z-index: 1; }
+
+  /* ---------- hero ---------- */
+  .hero { min-height: max(620px, var(--screen, 100svh)); overflow: hidden; isolation: isolate; display: grid; align-items: center; }
+  /* black until the montage has played, then the sky comes in behind her */
+  .blackout { position: absolute; inset: 0; z-index: 0; background: var(--space); transition: opacity 4s cubic-bezier(.45,0,.25,1); }
+  .hero.sky-in .blackout { opacity: 0; }
+  /* her photo sits flush right inside a soft oval that melts into the night. The image keeps its own proportions (width 100%,
+     height auto) so the oval is placed on HER — centred on her face, wide enough for all of her hair — at every screen size.
+     Her crown touches the top of the original photo, so the oval's top runs off the top of the screen (the screen edge crops
+     the crown, never the mask); it closes across her collarbones. */
+  /* .hero-photo spans the whole hero (so its bottom-fade mask never clips the aura at the sides); .oval sits flush right in it */
+  .hero-photo { position: absolute; inset: 0; z-index: 2; opacity: 0;
+    --ox: 54%; --oy: 29.5%; --rx: 45.5%; --ry: 44%;
+    /* whatever the screen shape, the photo and its aura are gone before the hero's bottom edge, so nothing is ever cut flat there */
+    -webkit-mask-image: linear-gradient(to top, transparent 0, #000 14%); mask-image: linear-gradient(to top, transparent 0, #000 14%); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+  /* .oval is exactly the image's box, so the mask and the aura are placed in the photo's own coordinates */
+  .oval { position: absolute; right: 2%; top: 0; width: min(70%, calc(var(--screen, 100svh) * 1.02)); aspect-ratio: 1179 / 1758; translate: 0 -6%; }
+  .oval img { position: absolute; inset: 0; width: 100%; height: 100%; -webkit-mask-image: var(--oval); mask-image: var(--oval);
+    --oval: radial-gradient(ellipse calc(var(--rx) * var(--grow)) calc(var(--ry) * var(--grow)) at var(--ox) var(--oy), #000 0 44%, rgba(0,0,0,.95) 52%, rgba(0,0,0,.85) 60%, rgba(0,0,0,.7) 68%,
+      rgba(0,0,0,.52) 75%, rgba(0,0,0,.34) 82%, rgba(0,0,0,.19) 88%, rgba(0,0,0,.08) 94%, transparent 100%); }
+  /* a faint warm light spilling past the oval, so her white backdrop fades through dusk into the night instead of through grey.
+     It is its own ellipse, larger than the photo's edge, and fades to nothing inside its own box: no seams.
+     Its bottom stops level with the oval's, inside the hero, so the hero's edge never cuts it into a line. */
+  .aura { position: absolute; pointer-events: none; left: calc(var(--ox) - var(--rx) * 1.3 * var(--grow)); top: calc(var(--oy) - var(--ry) * 1.35 * var(--grow));
+    width: calc(var(--rx) * 2.6 * var(--grow)); height: calc(var(--ry) * 2.25 * var(--grow));
+    background: radial-gradient(closest-side, rgba(246, 222, 196, .2) 0 58%, rgba(232, 186, 150, .1) 76%, rgba(200, 150, 140, .035) 89%, transparent 100%); }
+  /* ---------- the opening: loss (tears) → love (the dip) → light (her, in the oval), as a focus pull — tall portrait frames,
+     each racked in from a soft white blur to sharp focus, held, racked back out; loss left of centre, love in the middle,
+     then her photo racks into focus and stays. Then the name, then the agency line, then the sky fades in around her. ---------- */
+  @property --grow { syntax: '<number>'; inherits: true; initial-value: 1; }
+  .beat { position: absolute; inset: 0 auto; z-index: 2; width: min(44%, calc(var(--screen, 100svh) * .64)); translate: -50% 0; opacity: 0; pointer-events: none; }
+  .beat img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .b1 img { filter: grayscale(.6) brightness(.82) contrast(1.05); object-position: 50% 26%; }
+  .b2 img { filter: sepia(.1); object-position: 50% 22%; }
+
+  .b1 { left: 28%; } .b2 { left: 50%; }
+  .beat img { -webkit-mask-image: radial-gradient(ellipse 50% 62% at 50% 42%, #000 45%, transparent 100%); mask-image: radial-gradient(ellipse 50% 62% at 50% 42%, #000 45%, transparent 100%); }
+  @keyframes rack { 0% { opacity: 0; filter: blur(26px) brightness(1.7); transform: scale(1.05); } 36% { opacity: 1; filter: blur(0) brightness(1); transform: scale(1); }
+    70% { opacity: 1; filter: blur(0) brightness(1); } 100% { opacity: 0; filter: blur(18px) brightness(.8); transform: scale(1); } }
+  @keyframes rackIn { 0% { opacity: 0; filter: blur(26px) brightness(1.5); } 100% { opacity: 1; filter: blur(0) brightness(1); } }
+  .hero.play .b1 { animation: rack 2.7s ease-in-out .3s both; }
+  .hero.play .b2 { animation: rack 2.7s ease-in-out 2.6s both; }
+  .hero.play .hero-photo { animation: rackIn 2.2s cubic-bezier(.3,.6,.2,1) 4.7s both; }
+
+  .hero.done .hero-photo { opacity: 1; animation: none; }
+  .glow { position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 4.5s cubic-bezier(.45,0,.25,1) .4s;
+    background: radial-gradient(42% 60% at 70% 34%, rgba(240, 185, 142, .22), transparent 70%); }
+  .hero.sky-in .glow { opacity: 1; }
+  /* darkens the name side; fades out before the hero ends so the sky runs on unbroken into the next section */
+  .veil { position: absolute; inset: 0; z-index: 3; pointer-events: none; background: linear-gradient(100deg, rgba(5,6,15,.7) 0 18%, transparent 52%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 96%); mask-image: linear-gradient(to bottom, #000 55%, transparent 96%); }
+  .hero-copy { position: relative; z-index: 5; padding: 120px var(--gutter) 110px; max-width: 760px; }
+  .name { margin: 0; font: 400 clamp(68px, 9.6vw, 156px)/.92 "Parisienne", cursive; color: var(--gold); text-shadow: 0 2px 28px rgba(0,0,0,.45); }
+  .name span { display: block; }
+  .name span + span { padding-left: .9em; }
+  .name { opacity: 0; filter: blur(8px); translate: 0 14px; transition: opacity 2s ease, filter 2s ease, translate 2.6s cubic-bezier(.2,.7,.2,1); }
+  .hero.named .name { opacity: 1; filter: blur(0); translate: 0 0; }
+  .agency { margin: 28px 0 0 .3em; font: 500 16px/1.4 var(--text); letter-spacing: .06em; color: var(--mist); opacity: 0; transition: opacity 1.6s ease 1.3s; }
+  .hero.named .agency { opacity: .88; }
+  .horizon { position: absolute; left: 0; right: 0; bottom: 0; z-index: 5; height: 46px; pointer-events: none; }
+  .horizon svg { width: 100%; height: 100%; display: block; }
+  .reveal-late { opacity: 0; transition: opacity 3s ease 1.4s; }
+  .hero.sky-in .reveal-late { opacity: 1; }
+  .motes { position: absolute; inset: 0; z-index: 4; pointer-events: none; width: 100%; height: 100%; }
+
+  /* ---------- section titles: heading + a small sun on its horizon ---------- */
+  .title { text-align: center; margin: 0 auto clamp(36px, 5vw, 60px); }
+  .title h2 { margin: 0; font: italic 500 clamp(40px, 5vw, 62px)/1.05 var(--display); }
+  .title svg { width: 110px; height: 22px; margin: 14px auto 0; display: block; color: var(--gold); opacity: .8; }
+  section { padding: clamp(72px, 9vw, 120px) var(--gutter); position: relative; }
+
+  /* ---------- range: three looks she plays, loss → love → light, rising towards the sun ---------- */
+  .arc { position: relative; max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 48px); }
+  .range { padding-top: clamp(24px, 3vw, 48px); padding-bottom: 0; }
+  .arc-line { position: absolute; left: -2%; right: -2%; top: 8%; height: 84%; width: 104%; z-index: 0; pointer-events: none; overflow: visible; }
+  .beat-col { position: relative; z-index: 1; }
+  .beat-col.loss { margin-top: 150px; } .beat-col.love { margin-top: 75px; }
+  .beat-col h3 { margin: 0 0 14px; font: italic 500 clamp(26px, 2.6vw, 34px)/1.1 var(--display); color: var(--gold); text-align: center; }
+  .still { margin: 0; overflow: hidden; position: relative; cursor: zoom-in; }
+  .still img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease, filter 1.2s ease; }
+  .still:hover img { transform: scale(1.035); }
+  .still button { all: unset; position: absolute; inset: 0; cursor: zoom-in; }
+  /* the lead still sits flat on the sky, its edges dissolving into it */
+  /* a whole oval, feathered all the way round, that never touches the box edge (no flat cut under the chapter title) */
+  .lead { aspect-ratio: 4 / 4.8; -webkit-mask-image: radial-gradient(closest-side, #000 52%, rgba(0,0,0,.6) 74%, transparent 100%); mask-image: radial-gradient(closest-side, #000 52%, rgba(0,0,0,.6) 74%, transparent 100%); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  /* the two smaller stills float above it, like prints */
+  .floats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: -70px 6% 0; position: relative; z-index: 2; }
+  .floats .still { aspect-ratio: 4 / 5; border: 5px solid #f6efe8; border-radius: 2px; box-shadow: 0 22px 40px -18px rgba(0,0,0,.65); }
+  .floats .still:first-child { rotate: -2.5deg; } .floats .still:last-child { rotate: 2deg; translate: 0 18px; }
+  .loss img { filter: saturate(.5) brightness(.9) hue-rotate(-8deg); }
+  .love img { filter: saturate(.9) sepia(.08); }
+  .light img { filter: saturate(1.06) brightness(1.03); }
+  .beat-col .still:hover img { filter: none; }
+
+  /* ---------- photos: two clusters of three, drifting between sections (each still moves at its own scroll speed) ---------- */
+  .drift { position: relative; display: flex; align-items: flex-start; max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); pointer-events: none; }
+  .drift .still { pointer-events: auto; aspect-ratio: 4 / 5; transform: translateY(var(--py, 0px)); will-change: transform; }
+  .drift .still img { object-position: 50% 22%; }
+  .credits { padding-top: 0; }
+  /* A: loose prints, fanned and overlapping the edges of the credits card */
+  .drift { z-index: 3; }
+  .drift .still { flex: 0 0 clamp(150px, 17vw, 240px); border: 6px solid #f6efe8; border-radius: 2px; box-shadow: 0 30px 60px -24px rgba(8, 12, 40, .7); }
+  .drift .still + .still { margin-left: calc(-1 * clamp(18px, 2.6vw, 40px)); }
+  .drift .still:nth-child(1) { rotate: -5deg; margin-top: 10px; }
+  .drift .still:nth-child(2) { rotate: 2.5deg; margin-top: 34px; z-index: 1; }
+  .drift .still:nth-child(3) { rotate: -1.5deg; margin-top: 0; }
+  .d1 { justify-content: flex-start; padding-left: max(var(--gutter), 8%); margin-top: clamp(40px, 6vw, 90px); margin-bottom: calc(-1 * clamp(30px, 3.4vw, 48px)); }
+  .d2 { justify-content: flex-end; padding-right: max(var(--gutter), 8%); margin-top: calc(-1 * clamp(40px, 5vw, 70px)); }
+  .d2 .still:nth-child(1) { rotate: 3deg; margin-top: 40px; }
+  .d2 .still:nth-child(2) { rotate: -3.5deg; margin-top: 0; }
+  .d2 .still:nth-child(3) { rotate: 4deg; margin-top: 70px; }
+  /* B: no frames — soft-edged photos floating in the sky at different sizes, half tucked behind the credits card */
+
+  /* ---------- credits: a floating card on the dawn sky ---------- */
+  .card { max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6vw, 80px) clamp(22px, 5vw, 72px); border-radius: 6px; color: var(--ink);
+    background: color-mix(in srgb, var(--petal) 88%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); box-shadow: 0 40px 90px -40px rgba(80, 40, 60, .55); }
+  .card .title svg { color: #c48b5f; }
+  @media (max-width: 1000px) and (min-width: 761px) { .credit { grid-template-columns: 1fr; } .credit .r { white-space: normal; } }
+  .cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(7, auto); grid-auto-flow: column; gap: 0 clamp(24px, 3.4vw, 48px); border-bottom: 1px solid #e3cfc6; }
+  .credit { display: grid; grid-template-columns: 1fr auto; column-gap: 14px; padding: 13px 0; border-top: 1px solid #ecdcd4; min-height: 84px; align-content: center; }
+  .credit .t { font: 500 18px/1.3 var(--text); }
+  .credit .r { font: italic 400 16px/1.3 var(--text); color: var(--link); white-space: nowrap; }
+  .credit .p { grid-column: 1 / -1; font: 400 15px/1.35 var(--text); color: var(--soft); margin-top: 2px; }
+  .extras { margin: clamp(44px, 6vw, 70px) 0 0; display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(28px, 5vw, 72px); }
+  .extras h3 { margin: 0 0 10px; font: italic 500 26px/1.1 var(--display); }
+  .extras ul { list-style: none; margin: 0; padding: 0; }
+  .extras li { padding: 9px 0; border-top: 1px solid #ecdcd4; font-size: 16.5px; display: flex; justify-content: space-between; gap: 16px; }
+  .extras li span:last-child { color: var(--soft); text-align: right; }
+  .award { display: flex; gap: 18px; align-items: center; padding: 18px 0 0; }
+  .award svg { flex: 0 0 64px; height: 64px; color: #c48b5f; }
+  .award b { display: block; font: italic 500 22px/1.2 var(--display); }
+  .award span { color: var(--soft); font-size: 16px; }
+
+  /* ---------- short film card: a little poster, floating beside the words ---------- */
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; border-radius: 40px; font: 500 16px/1 var(--text); text-decoration: none; white-space: nowrap; background: #b5643f; color: #fff; box-shadow: 0 10px 22px -10px rgba(140, 60, 30, .7); }
+  .btn:hover { background: #9a5a45; }
+  .dev { display: grid; margin: clamp(44px, 6vw, 70px) 0 0; }
+  .dev small { display: block; font: italic 400 16px/1.3 var(--text); margin-bottom: 4px; }
+  .dev b { display: block; font: italic 500 clamp(26px, 3vw, 36px)/1.1 var(--display); }
+  .dev p { margin: 6px 0 0; font-size: 16.5px; }
+  .dev.poster { grid-template-columns: auto 1fr; gap: 22px clamp(28px, 5vw, 60px); align-items: center; max-width: 820px; margin-left: auto; margin-right: auto; }
+  .mini-poster { width: clamp(150px, 18vw, 200px); aspect-ratio: 2 / 3; border-radius: 3px; position: relative; overflow: hidden; rotate: -3deg; box-shadow: 0 30px 50px -22px rgba(60, 30, 40, .7);
+    background: radial-gradient(70% 40% at 50% 100%, #ffe3b0, transparent 70%), linear-gradient(to bottom, #141a36, #6383bd 55%, #e6aeb0 82%, #f7c894);
+    display: grid; align-content: space-between; padding: 16px 14px; color: #fff8ec; text-align: center; }
+  .mini-poster::after { content: ""; position: absolute; left: 50%; bottom: -22%; width: 70%; aspect-ratio: 1; translate: -50% 0; border-radius: 50%; background: radial-gradient(circle, #fff3d6 0, #ffd9a0 45%, transparent 70%); }
+  .mini-poster i { font: 500 9px/1 system-ui, sans-serif; letter-spacing: .2em; text-transform: uppercase; font-style: normal; opacity: .8; position: relative; z-index: 1; }
+  .mini-poster b { font: 400 30px/1 "Parisienne", cursive !important; position: relative; z-index: 1; color: #fff8ec; }
+  .dev.poster small { color: var(--link); }
+  .dev.poster p { color: var(--soft); margin-bottom: 18px; }
+
+  /* ---------- footer: the sun comes up ---------- */
+  footer { overflow: hidden; padding: clamp(110px, 12vw, 170px) var(--gutter) calc(40px + env(safe-area-inset-bottom)); color: var(--ink); }
+  .sunrise { position: absolute; left: 50%; bottom: calc(-1 * clamp(260px, 30vw, 420px)); width: clamp(520px, 60vw, 840px); aspect-ratio: 1; translate: -50% 0; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle, #fffaf0 0, #fff0d0 36%, rgba(255, 220, 160, .55) 52%, transparent 70%); transform: translateY(var(--rise, 120px)); transition: transform 2.6s cubic-bezier(.2,.7,.2,1); }
+  footer.up .sunrise { --rise: 0px; }
+  .ft { position: relative; max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px clamp(28px, 5vw, 72px); align-items: end; }
+  .ft h2 { grid-column: 1 / -1; margin: 0; font: italic 500 clamp(44px, 6vw, 76px)/1 var(--display); }
+  .ft h2 svg { display: block; width: 120px; height: 24px; margin-top: 16px; color: #b5643f; }
+  .rep b { display: block; font: italic 500 26px/1.2 var(--display); }
+  .rep p { margin: 6px 0 0; font-size: 17px; line-height: 1.6; }
+  .rep a { color: var(--link); text-underline-offset: 3px; }
+  .socials { display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap; }
+  .socials a { display: inline-flex; align-items: center; gap: 9px; padding: 12px 18px; border: 1px solid currentColor; border-radius: 40px; text-decoration: none; font: 500 16px/1 var(--text); background: rgba(255, 250, 240, .35); }
+  .socials a:hover { background: var(--ink); color: var(--sun); border-color: var(--ink); }
+  .socials svg { width: 18px; height: 18px; }
+  .colophon { position: relative; grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 14.5px; opacity: .75; padding-top: 22px; border-top: 1px solid color-mix(in srgb, currentColor 25%, transparent); }
+  .built-by { display: inline-block; margin-left: 1.1em; padding-left: 1.1em; border-left: 1px solid color-mix(in srgb, currentColor 35%, transparent); font-size: 12px; font-weight: 400; letter-spacing: .02em; text-transform: none; opacity: 0.85; }
+  .built-by a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); }
+  .built-by a:hover { text-decoration-color: currentColor; }
+  @media (max-width: 600px) { .built-by { display: block; margin: 6px 0 0; padding: 0; border: 0; } }
+
+  /* ---------- lightbox ---------- */
+  .lb { position: fixed; inset: 0; z-index: 40; background: rgba(10, 10, 20, .94); display: grid; place-items: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity .35s ease; }
+  .lb.open { opacity: 1; pointer-events: auto; }
+  .lb img { max-height: calc(100svh - 80px); max-width: min(92vw, 900px); width: auto; border-radius: 2px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+  .lb button { position: absolute; top: 16px; right: 16px; background: none; border: 1px solid var(--mist); color: var(--mist); border-radius: 30px; padding: 9px 16px; font: 500 15px/1 var(--text); cursor: pointer; }
+
+  /* ---------- phones ---------- */
+  @media (max-width: 760px) {
+    body { font-size: 17px; }
+    .hero { align-items: end; min-height: var(--screen, 100svh); }
+    /* phones: the photo a little wider than the screen so her face reads, the oval taller so it closes on her chest */
+    .hero-photo { --oy: 31%; --ry: 49%; }
+    .oval { width: 124%; left: -15%; right: auto; }
+    .glow { background: radial-gradient(75% 38% at 50% 26%, rgba(240, 185, 142, .2), transparent 70%); }
+    /* opening on phones: one column, every beat centred */
+    .beat { left: 50% !important; width: 84%; inset: 0 auto 22%; }
+    .veil { background: linear-gradient(to top, rgba(5,6,15,.85) 0 16%, transparent 45%); }
+    .hero-copy { padding: 0 var(--gutter) 70px; }
+    .name { font-size: clamp(54px, 16vw, 80px); }
+    .name span + span { padding-left: .6em; }
+    .agency { margin-top: 16px; font-size: 14px; }
+    .arc { grid-template-columns: 1fr; gap: 64px; }
+    .arc-line { display: none; }
+    .beat-col.loss, .beat-col.love { margin-top: 0; }
+    /* phones: both clusters become two side by side with the third tucked under them, centred */
+    html .drift { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; padding: 0 var(--gutter) !important; }
+    html .drift .still { flex: none !important; width: auto; margin: 0 !important; }
+    html .drift .still:nth-child(2) { margin-top: 40px !important; }
+    html .drift .still:nth-child(3) { grid-column: 1 / -1; width: 58%; justify-self: center; margin-top: -24% !important; z-index: 2; }
+    .d1 { margin-top: 88px; margin-bottom: -30px; }
+    .d2 { margin-top: -30px; }
+        .cols { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
+    .credit { min-height: 0; }
+    .extras { grid-template-columns: 1fr; }
+    .dev.poster { grid-template-columns: 1fr; }
+    .dev .btn { justify-self: start; }
+    .ft { grid-template-columns: 1fr; }
+    .socials { justify-content: flex-start; }
+    .colophon { flex-direction: column; gap: 4px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .name, .agency, .blackout, .glow, .reveal-late, .sunrise { transition: none !important; }
+    .beat { display: none; }
+    .motes, .sky-fx { display: none; }
+  }
+
+</style>
+<script>
+  // overscroll colour: past halfway the page ends in the footer's colour, not a dark strip
+  addEventListener('scroll', () => document.documentElement.classList.toggle('at-end', scrollY > document.documentElement.scrollHeight / 2), { passive: true });
+</script>
+<script>
+  // Phones: pin viewport-sized things (the hero) to the first screen height, in px. In-app browsers (Instagram etc.)
+  // resize the whole viewport, svh included, as their toolbar slides away on scroll, and the hero grew mid-scroll.
+  // Only a width change (rotation) re-measures. Desktop keeps plain svh.
+  (() => { if (!matchMedia('(pointer: coarse)').matches) return;
+    const r = document.documentElement; let w = 0;
+    const pin = () => { if (innerWidth === w) return; w = innerWidth; r.style.setProperty('--screen', innerHeight + 'px'); };
+    pin(); addEventListener('resize', pin); })();
+</script>
+</head>
+<body>
+
+<div class="sky" aria-hidden="true"></div>
+<canvas class="sky-fx" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- a small sun on its horizon: the recurring mark -->
+  <symbol id="sun" viewBox="0 0 110 22">
+    <path d="M0 21h110" stroke="currentColor" stroke-width="1"/>
+    <path d="M41 21a14 14 0 0 1 28 0" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    <g stroke="currentColor" stroke-width="1" stroke-linecap="round">
+      <path d="M55 2v4"/><path d="M42.5 7.2l2.6 3"/><path d="M67.5 7.2l-2.6 3"/><path d="M35 13.8l3.6 1.6"/><path d="M75 13.8l-3.6 1.6"/>
+    </g>
+  </symbol>
+</svg>
+
+<header class="hero" id="top">
+  <div class="blackout" aria-hidden="true"></div>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="beat b1" aria-hidden="true"><img src="assets/scenes/tears.jpg" alt=""></div>
+  <div class="beat b2" aria-hidden="true"><img src="assets/scenes/dance-dip.jpg" alt=""></div>
+  <div class="hero-photo"><div class="oval"><i class="aura"></i><img src="assets/photos/white-lace.jpg" alt="Anastasia Rimar, headshot in a white lace-trim top" width="1179" height="1758" fetchpriority="high"></div></div>
+  <div class="veil" aria-hidden="true"></div>
+  <canvas class="motes" aria-hidden="true"></canvas>
+  <div class="hero-copy">
+    <h1 class="name"><span>Anastasia</span><span>Rimar</span></h1>
+    <p class="agency">Trisko Talent Management</p>
+  </div>
+  <div class="horizon reveal-late" aria-hidden="true">
+    <svg viewBox="0 0 1440 46" preserveAspectRatio="none">
+      <defs><linearGradient id="hz" x1="0" x2="1"><stop offset="0" stop-color="#e2bb7c" stop-opacity="0"/><stop offset=".5" stop-color="#e2bb7c"/><stop offset="1" stop-color="#e2bb7c" stop-opacity="0"/></linearGradient></defs>
+      <path d="M0 45.5H1440" stroke="url(#hz)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+    </svg>
+  </div>
+</header>
+
+<main>
+  <section class="range" id="range">
+    <h2 class="sr-only">Range</h2>
+    <div class="arc">
+      <!-- one gold line rising through all three, ending in the sun -->
+      <svg class="arc-line" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="al" x1="0" x2="1"><stop offset="0" stop-color="#8c9aab" stop-opacity=".25"/><stop offset=".5" stop-color="#e2bb7c" stop-opacity=".45"/><stop offset="1" stop-color="#f6d49a" stop-opacity=".8"/></linearGradient></defs>
+        <path d="M0 330 C 180 340, 260 230, 420 250 S 700 120, 1000 40" fill="none" stroke="url(#al)" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <div class="beat-col loss">
+        <h3>The loss</h3>
+        <figure class="still lead"><img src="assets/scenes/tears.jpg" alt="In a bridal fur wrap, fighting back tears" loading="lazy"><button aria-label="Enlarge"></button></figure>
+        <div class="floats">
+          <figure class="still"><img src="assets/scenes/bedside-veil.jpg" alt="In her wedding veil, weeping at a hospital bedside" loading="lazy"><button aria-label="Enlarge"></button></figure>
+          <figure class="still"><img src="assets/scenes/embrace.jpg" alt="Held from behind as she breaks down" loading="lazy"><button aria-label="Enlarge"></button></figure>
+        </div>
+      </div>
+      <div class="beat-col love">
+        <h3>The love</h3>
+        <figure class="still lead"><img src="assets/scenes/love-smile.jpg" alt="In a satin gown, smiling up at her partner as he smiles back" style="object-position: 55% 22%" loading="lazy"><button aria-label="Enlarge"></button></figure>
+        <div class="floats">
+          <figure class="still"><img src="assets/scenes/dance-dip.jpg" alt="Dipped in a dance in a satin gown, black and white" loading="lazy"><button aria-label="Enlarge"></button></figure>
+          <figure class="still"><img src="assets/scenes/hand-light.jpg" alt="Holding hands with him in hazy backlight" style="object-position: 50% 40%" loading="lazy"><button aria-label="Enlarge"></button></figure>
+        </div>
+      </div>
+      <div class="beat-col light">
+        <h3>The light</h3>
+        <figure class="still lead"><img src="assets/scenes/skating.jpg" alt="Figure skating in a lilac dress" loading="lazy"><button aria-label="Enlarge"></button></figure>
+        <div class="floats">
+          <figure class="still"><img src="assets/scenes/grass-laugh.jpg" alt="Laughing on sunlit grass in a white dress" loading="lazy"><button aria-label="Enlarge"></button></figure>
+          <figure class="still"><img src="assets/scenes/cradle.jpg" alt="Cradling a newborn in soft morning light" style="object-position: 50% 35%" loading="lazy"><button aria-label="Enlarge"></button></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- photos: no section of their own; two clusters of three drift down the page between the others -->
+  <div class="drift d1" aria-label="Photos" role="group">
+    <figure class="still"><img src="assets/photos/plum.jpg" alt="Headshot in a plum knit against a dark backdrop" loading="lazy"><button aria-label="Enlarge"></button></figure>
+    <figure class="still"><img src="assets/photos/turtleneck.jpg" alt="Headshot in a black turtleneck, gold earrings" loading="lazy"><button aria-label="Enlarge"></button></figure>
+    <figure class="still"><img src="assets/photos/necklace.jpg" alt="Close portrait with a beaded necklace" loading="lazy"><button aria-label="Enlarge"></button></figure>
+  </div>
+
+  <section class="credits" id="credits">
+    <div class="card">
+      <div class="title"><h2>Credits</h2><svg aria-hidden="true"><use href="#sun"/></svg></div>
+      <div class="cols"></div>
+
+      <!-- short film: mini poster -->
+      <div class="dev poster">
+        <div class="mini-poster" aria-hidden="true"><i>A short film</i><b>If She Asked Me To</b><i>In development</i></div>
+        <div><small>Her own short film · in development</small><b>If She Asked Me To</b><p>Help bring it to the screen.</p><a class="btn" href="https://www.gofundme.com/f/help-fun-if-she-asked-me-to" target="_blank" rel="noopener">Support on GoFundMe</a></div>
+      </div>
+
+      <div class="extras">
+        <div>
+          <h3>Training</h3>
+          <ul>
+            <li><span>On-camera acting workshop · Simon Longmore</span><span>VADA</span></li>
+            <li><span>Youth &amp; teen film/TV workshop · Danielle Aufiero, Amber Horn</span><span>Vancouver</span></li>
+            <li><span>Musical theatre · Cher Zorrilla</span><span>Stage Coach Performing Arts</span></li>
+            <li><span>Musical theatre · Chad Matchette</span><span>Lindbjerg Academy</span></li>
+            <li><span>Private lessons · Julian Paul</span><span>Vancouver</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Award</h3>
+          <div class="award">
+            <svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+              <path d="M32 58c-12-4-20-15-20-30M32 58c12-4 20-15 20-30"/>
+              <path d="M14 46c-4 0-7-2-8-5 3-1 7 0 8 3M12 37c-4-1-6-4-6-7 3 0 6 2 7 5M12 28c-3-2-4-5-3-8 3 1 5 4 5 7M50 46c4 0 7-2 8-5-3-1-7 0-8 3M52 37c4-1 6-4 6-7-3 0-6 2-7 5M52 28c3-2 4-5 3-8-3 1-5 4-5 7"/>
+              <circle cx="32" cy="26" r="7"/><path d="M32 13v3M23 17l2 2M41 17l-2 2"/>
+            </svg>
+            <div><b>Actor of the Year</b><span>Stage Coach Performing Arts</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="drift d2" aria-label="More photos" role="group">
+    <figure class="still"><img src="assets/photos/bw.jpg" alt="Black and white portrait, hand in her hair" loading="lazy"><button aria-label="Enlarge"></button></figure>
+    <figure class="still"><img src="assets/photos/denim.jpg" alt="In a denim jacket, soft window light" loading="lazy"><button aria-label="Enlarge"></button></figure>
+    <figure class="still"><img src="assets/photos/red.jpg" alt="Laughing, hands in her hair, against a red wall" loading="lazy"><button aria-label="Enlarge"></button></figure>
+  </div>
+</main>
+
+<footer id="contact">
+  <div class="sunrise" aria-hidden="true"></div>
+  <div class="ft">
+    <h2>Casting &amp; bookings<svg aria-hidden="true"><use href="#sun"/></svg></h2>
+    <div class="rep">
+      <b>Katelyn Spencer</b>
+      <p>Trisko Talent Management, Vancouver<br>
+        <a href="tel:+16046377009">604-637-7009</a> · <a href="https://triskotalent.com" target="_blank" rel="noopener">triskotalent.com</a></p>
+    </div>
+    <div class="socials">
+      <a href="https://www.imdb.com/name/nm16841707/" target="_blank" rel="noopener">IMDb</a>
+      <a href="https://www.instagram.com/natasha.rimar/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>Instagram</a>
+      <a href="https://www.tiktok.com/@anastasianatasharimar" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 3 2.5 5 5.5 5.3"/></svg>TikTok</a>
+    </div>
+    <div class="colophon"><span>Anastasia Rimar · Actress · Vancouver<span class="built-by">Built by Harrison Keen, <a href="https://harrisonkeen.tech" rel="noopener">harrisonkeen.tech</a></span></span><span>Non-union</span></div>
+  </div>
+</footer>
+
+<div class="lb" role="dialog" aria-modal="true" aria-label="Photo"><img alt=""><button type="button">Close</button></div>
+
+<script>
+  const root = document.documentElement, hero = document.querySelector('.hero');
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- credits: full list, one grid filled down each column so rows and bottoms line up ----------
+  const CREDITS = [
+    ['Playing Games in Paradise', 'Lead', 'Dir. Bharmal'],
+    ['Dangerous Vows', 'Lead', 'Aurum Media'],
+    ['Wrongly Accused', 'Lead', 'NetShort'],
+    ['Love Burn on Ice', 'Lead', 'Dir. Shu Zhu'],
+    ['Mistaken Surrogacy for the Tycoon Who Secretly Loves Me', 'Lead', 'Sparkland Pictures'],
+    ['My Billionaire Husband Is Stolen by My Bestie', 'Lead', 'Roaring Pictures'],
+    ["Don't Forget Me", 'Lead', 'LeoMax / Sparkland Pictures'],
+    ['Till We Meet Again', 'Lead', 'Sijing Yang / Crewbite'],
+    ['Love Me Like You Do', 'Lead', 'Sparkland Pictures'],
+    ['Thorns of Desire', 'Lead', 'Wai Sun Cheng / Pandapix'],
+    ['Betrayal', 'Lead', 'Jimmy Wu / Section Cinema'],
+    ['Fated Ties', 'Lead', 'Dom Cutrupi / Sparkland Pictures'],
+    ['Unscented', 'Lead', 'Ravencrew'],
+    ['Your Love Is My Poison', 'Lead', 'Ravencrew'],
+    ['The Return of the Alphas Unclaimed Queens', 'Lead', 'Sparkland / LeoMax'],
+    ['The Naughty Artist', 'Lead', 'Sebastian Wilkins Ortiz / Dark Tides'],
+    ['Sinfully Yours', 'Supporting lead', 'Panta Mosleh / Pandapix'],
+    ['Second Chance, Double Trouble', 'Supporting', 'Jimmy Wu / Section Cinema'],
+    ['Caught in the Act', 'Supporting', 'Budou Films'],
+    ['Finally See You Carrying Our Baby', 'Supporting', 'Budou Films'],
+    ['Tides of Desire', 'Supporting', 'WEC Films'],
+  ];
+  const cols = document.querySelector('.cols');
+  CREDITS.forEach(([t, r, p]) => cols.insertAdjacentHTML('beforeend', `<div class="credit"><span class="t">${t}</span><span class="r">${r}</span><span class="p">${p}</span></div>`));
+
+  // ---------- lightbox ----------
+  const lb = document.querySelector('.lb'), lbImg = lb.querySelector('img');
+  document.addEventListener('click', e => { const b = e.target.closest('.still button'); if (!b) return;
+    const img = b.parentElement.querySelector('img'); lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('open'); lb.querySelector('button').focus(); });
+  const closeLb = () => lb.classList.remove('open');
+  lb.addEventListener('click', e => { if (e.target !== lbImg) closeLb(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+  // ---------- opening: loss → love → light (her photo racks into focus and stays) → name → agency line → the sky ----------
+  // PHOTO_IN = seconds until her photo is fully in focus (rackIn: 4.7s delay + 2.2s). The name fades in as she settles,
+  // the agency line follows it (its CSS transition-delay), and only then does the sky fade in around her.
+  // skyAt = when the sky started coming in; the stars and motes read it so they fade in one by one instead of switching on.
+  const PHOTO_IN = 6.9, SKY_AT = PHOTO_IN + 1.5;
+  let timers = [], skyAt = still ? -1e9 : 1e12;
+  const skySince = () => (performance.now() - skyAt) / 1000;   // seconds since the sky began to come in (negative before)
+  const ramp = (t, d) => { const k = Math.min(1, Math.max(0, t / d)); return k * k * (3 - 2 * k); };   // smoothstep 0 → 1 over d seconds
+  function playHero() {
+    timers.forEach(clearTimeout); timers = [];
+    hero.classList.remove('play', 'done', 'named', 'sky-in');
+    if (still) { hero.classList.add('done', 'named', 'sky-in'); return; }
+    skyAt = 1e12;
+    void hero.offsetWidth;
+    hero.classList.add('play');
+    const at = (s, f) => timers.push(setTimeout(f, s * 1000));
+    at(PHOTO_IN - .7, () => hero.classList.add('named'));
+    at(SKY_AT, () => { skyAt = performance.now(); hero.classList.add('sky-in'); });
+    at(PHOTO_IN + .1, () => { hero.classList.remove('play'); hero.classList.add('done'); });
+  }
+
+  // ---------- light motes in the hero: warm specks drifting up, like dust in a sunbeam ----------
+  const mc = document.querySelector('.motes');
+  let moteRun = 0;
+  function motes() {
+    const run = ++moteRun; if (still) return;
+    const W = hero.clientWidth, H = hero.clientHeight, d = Math.min(devicePixelRatio || 1, 2);
+    mc.width = W * d; mc.height = H * d; const x = mc.getContext('2d'); x.setTransform(d, 0, 0, d, 0, 0);
+    const ps = Array.from({ length: Math.round(W * H / 16000) }, () => ({ x: Math.random() * W, y: Math.random() * H, r: .6 + Math.random() * 1.8, v: 6 + Math.random() * 16, w: Math.random() * 6.28, a: .25 + Math.random() * .5, d: Math.random() * 2.4 }));
+    let last = performance.now();
+    (function f(now) {
+      if (run !== moteRun) return;
+      const dt = Math.min(.05, (now - last) / 1000); last = now;
+      x.clearRect(0, 0, W, H);
+      if (scrollY < H) { const t = skySince();
+        ps.forEach(p => {
+          p.y -= p.v * dt; p.w += dt * .8; p.x += Math.sin(p.w) * .18;
+          if (p.y < -6) { p.y = H + 6; p.x = Math.random() * W; }
+          x.fillStyle = `rgba(246, 214, 160, ${p.a * ramp(t - p.d, 2.2) * (.6 + .4 * Math.sin(p.w * 2.3))})`;
+          x.beginPath(); x.arc(p.x, p.y, p.r, 0, 7); x.fill();
+        }); }
+      requestAnimationFrame(f);
+    })(last);
+  }
+
+  // ---------- the sky's fine detail, placed along the page: stars up high, clouds and balloons at dawn ----------
+  // Positions are in page coordinates (fraction of the page height), so each band keeps its own detail.
+  // depth < 1 drifts slower than the page (sits further back); stars are flat on the sky.
+  const fx = document.querySelector('.sky-fx'), fc = fx.getContext('2d');
+  let world = [], docH = 0, VW = 0, VH = 0;
+  function rnd(a, b) { return a + Math.random() * (b - a); }
+  function buildSky() {
+    const d = Math.min(devicePixelRatio || 1, 2); VW = innerWidth; VH = innerHeight;
+    fx.width = VW * d; fx.height = VH * d; fc.setTransform(d, 0, 0, d, 0, 0);
+    docH = document.documentElement.scrollHeight; world = [];
+    const area = VW * docH * .5, phone = VW < 760;
+    for (let i = 0; i < area / (phone ? 3200 : 2400); i++) {         // stars: dense at the top, thinning by mid-page
+      const f = Math.pow(Math.random(), 1.6) * .55;
+      world.push({ k: 'star', f, x: Math.random() * VW, r: Math.random() < .06 ? rnd(1.1, 1.7) : rnd(.35, .95), tw: rnd(0, 6.28), sp: rnd(.6, 2.2), d: 1, w: rnd(0, 2.6) });
+    }
+    const clouds = phone ? 9 : 16;
+    for (let i = 0; i < clouds; i++) {                                // clouds: soft, slow, from the blue band down
+      const f = rnd(.5, .95), d = rnd(.55, .9);
+      world.push({ k: 'cloud', f, x: Math.random() * VW, w: rnd(120, 300) * (phone ? .7 : 1), v: rnd(3, 9) * (Math.random() < .5 ? -1 : 1), d, a: rnd(.18, .38),
+        puffs: Array.from({ length: 6 }, () => [rnd(-.5, .5), rnd(-.12, .1), rnd(.22, .4)]) });
+    }
+    // [panel, alternate panel, crown + belt trim]
+    const hues = [['#d9848f', '#f6e6d6', '#b9874f'], ['#7f9bc8', '#f2ebdc', '#d6a35c'], ['#e9a274', '#fbf0de', '#9c5a4a'], ['#b48ab8', '#f6e9ef', '#c79a5a'], ['#e7b5a6', '#fbf4ea', '#7f6aa0']];
+    for (let i = 0; i < (phone ? 3 : 5); i++) {                        // hot-air balloons: few, small, bobbing
+      const s = phone ? rnd(15, 24) : rnd(17, 32), d = .55 + (s - 15) / 17 * .3;   // smaller = further away = slower, paler
+      const o = { k: 'balloon', f: [.5, .56, .9, .62, .94][i], x: (phone ? rnd(.08, .92) : (i % 2 ? rnd(.88, .96) : rnd(.03, .1))) * VW, s, d, bob: rnd(0, 6.28), v: rnd(2, 6), flame: rnd(2, 9) };
+      o.img = balloonSprite(s, hues[i % hues.length]); world.push(o);
+    }
+  }
+  // each balloon is painted once to its own small canvas: curved gores, a patterned belt, shading, skirt, ropes, wicker basket
+  function balloonSprite(s, [c0, c1, acc]) {
+    const d = Math.min(devicePixelRatio || 1, 2), W = s * 2.6, H = s * 3.5, cv = document.createElement('canvas');
+    cv.width = Math.ceil(W * d); cv.height = Math.ceil(H * d); const c = cv.getContext('2d'); c.setTransform(d, 0, 0, d, W / 2 * d, s * 1.3 * d);
+    const top = -1.2 * s, eq = -.2 * s, throat = 1.05 * s;                          // envelope: round crown, teardrop taper
+    const hw = y => y <= eq ? Math.sqrt(Math.max(0, s * s - (y - eq) ** 2)) : .26 * s + .74 * s * Math.cos(Math.PI / 2 * ((y - eq) / (throat - eq))) ** 1.15;
+    const ys = Array.from({ length: 61 }, (_, i) => top + (throat - top) * i / 60);
+    const env = new Path2D(); ys.forEach((y, i) => env[i ? 'lineTo' : 'moveTo'](-hw(y), y)); [...ys].reverse().forEach(y => env.lineTo(hw(y), y)); env.closePath();
+    c.save(); c.clip(env);
+    const N = 10, u = k => Math.sin(-Math.PI / 2 + Math.PI * k / N);                // gore seams bunch towards the edges, like a sphere
+    for (let k = 0; k < N; k++) {
+      c.beginPath(); ys.forEach((y, i) => c[i ? 'lineTo' : 'moveTo'](u(k) * hw(y), y)); [...ys].reverse().forEach(y => c.lineTo(u(k + 1) * hw(y), y)); c.closePath();
+      c.fillStyle = k % 2 ? c1 : c0; c.fill();
+      // belt just under the equator: a checker of the two colours, framed in trim
+      c.save(); c.clip(); c.fillStyle = k % 2 ? c0 : c1; c.fillRect(-s, eq + .18 * s, 2 * s, .2 * s); c.restore();
+    }
+    c.fillStyle = acc; c.fillRect(-s, eq + .15 * s, 2 * s, .035 * s); c.fillRect(-s, eq + .38 * s, 2 * s, .035 * s);
+    c.beginPath(); c.arc(0, top + .05 * s, .42 * s, 0, 7); c.fill();                // crown cap
+    c.strokeStyle = 'rgba(70, 40, 50, .22)'; c.lineWidth = .5;                      // seams
+    for (let k = 1; k < N; k++) { c.beginPath(); ys.forEach((y, i) => c[i ? 'lineTo' : 'moveTo'](u(k) * hw(y), y)); c.stroke(); }
+    let g = c.createRadialGradient(-.38 * s, -.62 * s, 0, -.38 * s, -.62 * s, 1.1 * s); // light from the upper left
+    g.addColorStop(0, 'rgba(255, 252, 245, .55)'); g.addColorStop(1, 'rgba(255, 252, 245, 0)'); c.fillStyle = g; c.fillRect(-s, top, 2 * s, throat - top);
+    g = c.createLinearGradient(-s, 0, s, 0); g.addColorStop(0, 'rgba(40, 20, 50, 0)'); g.addColorStop(.55, 'rgba(40, 20, 50, .05)'); g.addColorStop(1, 'rgba(40, 20, 50, .38)');
+    c.fillStyle = g; c.fillRect(-s, top, 2 * s, throat - top); c.restore();
+    c.strokeStyle = 'rgba(60, 35, 45, .45)'; c.lineWidth = .6; c.stroke(env);
+    c.fillStyle = acc; c.beginPath(); c.moveTo(-.26 * s, throat); c.lineTo(.26 * s, throat); c.lineTo(.17 * s, throat + .2 * s); c.lineTo(-.17 * s, throat + .2 * s); c.fill(); // skirt
+    const bt = throat + .62 * s, bw = .36 * s, bh = .3 * s;
+    c.strokeStyle = 'rgba(70, 45, 40, .7)'; c.lineWidth = .55; c.beginPath();         // ropes
+    [[-.17, -.5], [-.06, -.22], [.06, .22], [.17, .5]].forEach(([a, b]) => { c.moveTo(a * s, throat + .2 * s); c.lineTo(b * bw, bt); }); c.stroke();
+    g = c.createLinearGradient(-bw / 2, 0, bw / 2, 0); g.addColorStop(0, '#a1714a'); g.addColorStop(.4, '#8a5c38'); g.addColorStop(1, '#5e3c26');
+    c.fillStyle = g; c.beginPath(); c.moveTo(-bw / 2, bt); c.lineTo(bw / 2, bt); c.lineTo(bw * .42, bt + bh); c.lineTo(-bw * .42, bt + bh); c.fill(); // basket
+    c.strokeStyle = 'rgba(50, 30, 20, .5)'; c.lineWidth = .4; c.beginPath();          // weave
+    for (let i = 1; i < 3; i++) { c.moveTo(-bw / 2 + i * .02 * s, bt + bh * i / 3); c.lineTo(bw / 2 - i * .02 * s, bt + bh * i / 3); }
+    for (let i = -2; i <= 2; i++) { c.moveTo(i * bw / 5.5, bt); c.lineTo(i * bw / 6.5, bt + bh); } c.stroke();
+    c.fillStyle = '#4a2e1e'; c.fillRect(-bw / 2 - .02 * s, bt - .04 * s, bw + .04 * s, .07 * s);                       // rim
+    return { cv, W, H, ox: W / 2, oy: s * 1.3, throat };
+  }
+  function shoot() { return { k: 'shoot', x: rnd(.2, .9) * VW, y: rnd(.05, .4) * VH, t: 0 }; }
+  let shooting = null, nextShoot = 4;
+  function screenY(o) { const wy = o.f * docH; return wy - scrollY + (scrollY + VH / 2 - wy) * (1 - o.d); }
+  function drawBalloon(o, y, t, dt) {
+    const b = o.img, by = y + Math.sin(t * .6 + o.bob) * 6;
+    fc.save(); fc.globalAlpha = .62 + (o.d - .55) * .9; fc.translate(o.x, by); fc.rotate(Math.sin(t * .45 + o.bob) * .03);
+    fc.drawImage(b.cv, -b.ox, -b.oy, b.W, b.H);
+    o.flame -= dt;                                                               // the burner fires now and then
+    if (o.flame < 0) { const p = -o.flame / .8;
+      if (p > 1) o.flame = rnd(4, 10); else { const fy = b.throat + o.s * .32, r = o.s * (.16 + .1 * Math.sin(p * Math.PI));
+        const g = fc.createRadialGradient(0, fy, 0, 0, fy, r * 2.2); g.addColorStop(0, `rgba(255, 236, 170, ${.95 * Math.sin(p * Math.PI)})`); g.addColorStop(.35, `rgba(255, 160, 70, ${.6 * Math.sin(p * Math.PI)})`); g.addColorStop(1, 'rgba(255, 140, 60, 0)');
+        fc.fillStyle = g; fc.beginPath(); fc.arc(0, fy, r * 2.2, 0, 7); fc.fill(); } }
+    fc.restore();
+  }
+  let skyLast = performance.now(), skyT = 0;
+  function sky(now) {
+    const dt = Math.min(.05, (now - skyLast) / 1000); skyLast = now; skyT += dt;
+    fc.clearRect(0, 0, VW, VH);
+    // on the hero the stars come out one by one as the sky fades in (each waits o.w s, then fades over 1.8s)
+    const skyT0 = scrollY < VH ? skySince() : 99, heroHidden = skyT0 < 0;
+    for (const o of world) {
+      const y = screenY(o); if (y < -80 || y > VH + 80) continue;
+      if (o.k === 'star') {
+        if (heroHidden) continue;
+        const a = ramp(skyT0 - o.w, 1.8) * (o.f < .3 ? 1 : 1 - (o.f - .3) / .25) * (.45 + .55 * Math.sin(skyT * o.sp + o.tw) ** 2);
+        fc.fillStyle = `rgba(255, 250, 238, ${a * .9})`; fc.beginPath(); fc.arc(o.x, y, o.r, 0, 7); fc.fill();
+        if (o.r > 1.1) { fc.fillStyle = `rgba(255, 244, 220, ${a * .12})`; fc.beginPath(); fc.arc(o.x, y, o.r * 4, 0, 7); fc.fill(); }
+      } else if (o.k === 'cloud') {
+        o.x += o.v * dt; if (o.x > VW + o.w) o.x = -o.w; if (o.x < -o.w) o.x = VW + o.w;
+        for (const [px, py, pr] of o.puffs) {
+          const cx = o.x + px * o.w, cy = y + py * o.w, r = pr * o.w;
+          const g = fc.createRadialGradient(cx, cy, 0, cx, cy, r); g.addColorStop(0, `rgba(255, 246, 240, ${o.a})`); g.addColorStop(1, 'rgba(255, 246, 240, 0)');
+          fc.fillStyle = g; fc.beginPath(); fc.arc(cx, cy, r, 0, 7); fc.fill();
+        }
+      } else if (o.k === 'balloon') { o.x += o.v * dt * .3; if (o.x > VW + 40) o.x = -40; drawBalloon(o, y, skyT, dt); }
+    }
+    // the odd shooting star, only while the night is on screen
+    if (scrollY < docH * .3 && skyT0 > 4.5) {
+      nextShoot -= dt;
+      if (!shooting && nextShoot < 0) { shooting = shoot(); nextShoot = rnd(5, 11); }
+      if (shooting) { const s = shooting; s.t += dt; const p = s.t / .9;
+        if (p >= 1) shooting = null; else { const hx = s.x - p * 260, hy = s.y + p * 110;
+          const g = fc.createLinearGradient(hx, hy, hx + 90, hy - 38); g.addColorStop(0, `rgba(255,250,235,${.8 * (1 - p)})`); g.addColorStop(1, 'rgba(255,250,235,0)');
+          fc.strokeStyle = g; fc.lineWidth = 1.2; fc.beginPath(); fc.moveTo(hx, hy); fc.lineTo(hx + 90, hy - 38); fc.stroke(); } }
+    }
+    requestAnimationFrame(sky);
+  }
+
+  // ---------- photo clusters: each print drifts at its own speed as you scroll past (layered depth) ----------
+  const SPEEDS = [.07, -.02, .11];
+  const drifts = [...document.querySelectorAll('.drift')];
+  function parallax() {
+    const sp = SPEEDS, k = innerWidth < 760 ? .5 : 1;
+    drifts.forEach(d => { const r = d.getBoundingClientRect(), off = r.top + r.height / 2 - innerHeight / 2;
+      if (r.bottom < -400 || r.top > innerHeight + 400) return;
+      [...d.children].forEach((el, i) => el.style.setProperty('--py', (off * sp[i] * k).toFixed(1) + 'px')); });
+  }
+  let pq = 0; if (!still) { addEventListener('scroll', () => { if (!pq) pq = requestAnimationFrame(() => { pq = 0; parallax(); }); }, { passive: true }); parallax(); }
+
+  // ---------- footer: the sun rises when you reach it ----------
+  const foot = document.querySelector('footer');
+  new IntersectionObserver(es => es.forEach(e => e.isIntersecting && foot.classList.add('up')), { threshold: .25 }).observe(foot);
+
+  let rs; addEventListener('resize', () => { clearTimeout(rs); rs = setTimeout(() => { motes(); buildSky(); }, 200); });
+  addEventListener('load', buildSky);
+
+  buildSky(); playHero(); motes();
+  if (!still) requestAnimationFrame(sky);
+
+</script>
+</body>
+</html>
