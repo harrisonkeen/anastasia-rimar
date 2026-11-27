@@ -1,0 +1,344 @@
+{
+  "version": 1,
+  "slots": {
+    "hero": {
+      "src": "assets/new/white-tee.webp",
+      "srcset": [],
+      "width": 1179,
+      "height": 1763,
+      "alt": "Natasha Rimar, headshot in a white tee, looking over her shoulder",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-1": {
+      "src": "assets/photos/turtleneck.jpg",
+      "srcset": [],
+      "width": 1100,
+      "height": 1640,
+      "alt": "Headshot in a black turtleneck, gold earrings",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-2": {
+      "src": "assets/photos/plum.jpg",
+      "srcset": [],
+      "width": 1179,
+      "height": 1764,
+      "alt": "Headshot in a plum knit against a dark backdrop",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-3": {
+      "src": "assets/photos/green.jpg",
+      "srcset": [],
+      "width": 1100,
+      "height": 1646,
+      "alt": "Headshot in an olive knit against a warm backdrop",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-4": {
+      "src": "assets/photos/denim.jpg",
+      "srcset": [],
+      "width": 1100,
+      "height": 1378,
+      "alt": "In a denim jacket, soft window light",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-5": {
+      "src": "assets/photos/red.jpg",
+      "srcset": [],
+      "width": 1100,
+      "height": 1646,
+      "alt": "Laughing, hands in her hair, against a red wall",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-6": {
+      "src": "assets/new/necklace-900.webp",
+      "srcset": [],
+      "width": 900,
+      "height": 1305,
+      "alt": "Close portrait with a beaded necklace",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-7": {
+      "src": "assets/new/white-dress-900.webp",
+      "srcset": [],
+      "width": 900,
+      "height": 1304,
+      "alt": "In a white halter gown, hair in soft curls",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-8": {
+      "src": "assets/new/gala-900.webp",
+      "srcset": [],
+      "width": 900,
+      "height": 1313,
+      "alt": "In a black strapless gown, holding his hand as she looks up at him",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-9": {
+      "src": "assets/scenes/dance-dip.jpg",
+      "srcset": [],
+      "width": 1179,
+      "height": 1570,
+      "alt": "Dipped in a dance in a satin gown, black and white",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-10": {
+      "src": "assets/scenes/tears.jpg",
+      "srcset": [],
+      "width": 1000,
+      "height": 1398,
+      "alt": "In a bridal fur wrap, fighting back tears",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-11": {
+      "src": "assets/new/bedside-veil-900.webp",
+      "srcset": [],
+      "width": 900,
+      "height": 1308,
+      "alt": "In a bridal veil and fur, weeping at a hospital bedside",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-12": {
+      "src": "assets/scenes/embrace.jpg",
+      "srcset": [],
+      "width": 1000,
+      "height": 1474,
+      "alt": "Held from behind as she breaks down",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-13": {
+      "src": "assets/scenes/skating.jpg",
+      "srcset": [],
+      "width": 1000,
+      "height": 1490,
+      "alt": "Figure skating in a lilac dress",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-14": {
+      "src": "assets/new/crash-900.webp",
+      "srcset": [],
+      "width": 900,
+      "height": 1087,
+      "alt": "On set: crouched on a smoky road, phone to her ear",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-15": {
+      "src": "assets/scenes/bts-camera.jpg",
+      "srcset": [],
+      "width": 1000,
+      "height": 647,
+      "alt": "Behind the scenes: lining up a shot with the camera crew",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-16": {
+      "src": "assets/scenes/bts-room.jpg",
+      "srcset": [],
+      "width": 1000,
+      "height": 652,
+      "alt": "Behind the scenes: a scene being shot in a living room",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "feat-1": {
+      "src": "assets/new/poster-surrogacy-900.webp",
+      "srcset": [],
+      "width": 900,
+      "height": 1195,
+      "alt": "Mistaken Surrogacy Christmas Destiny poster",
+      "poster": null,
+      "captions": {
+        "title": "Mistaken Surrogacy Christmas Destiny",
+        "role": "Lead"
+      },
+      "link": "https://www.imdb.com/title/tt39088911/"
+    },
+    "feat-2": {
+      "src": "assets/new/poster-loveme.webp",
+      "srcset": [],
+      "width": 1279,
+      "height": 720,
+      "alt": "Love Me Like You Do poster",
+      "poster": null,
+      "captions": {
+        "title": "Love Me Like You Do",
+        "role": "Lead"
+      },
+      "link": "https://www.imdb.com/title/tt36724637/"
+    },
+    "feat-3": {
+      "src": "assets/new/poster-luna.webp",
+      "srcset": [],
+      "width": 640,
+      "height": 813,
+      "alt": "The Scent of My Fated Luna poster",
+      "poster": null,
+      "captions": {
+        "title": "The Scent of My Fated Luna",
+        "role": "Lead"
+      },
+      "link": "https://www.imdb.com/title/tt38558185/"
+    },
+    "film-poster": {
+      "src": "assets/new/film-poster-900.webp",
+      "srcset": [],
+      "alt": "If She Asked Me To poster: a lit lantern held in the dark",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "film-1": {
+      "src": "assets/new/film-collar-900.webp",
+      "srcset": [],
+      "alt": "Natasha in period costume with a lace collar, from If She Asked Me To",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "film-2": {
+      "src": "assets/new/film-lantern-900.webp",
+      "srcset": [],
+      "alt": "Natasha by lantern light, from If She Asked Me To",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "side-photo": {
+      "src": "assets/photos/white-lace.jpg",
+      "srcset": [],
+      "width": 1179,
+      "height": 1758,
+      "alt": "Headshot in a white lace-trim top",
+      "poster": null,
+      "captions": {},
+      "link": null
+    }
+  },
+  "credits": [
+    {
+      "heading": "Leading roles",
+      "rows": [
+        {
+          "title": "Playing Games in Paradise",
+          "detail": "Dir. Bharmal"
+        },
+        {
+          "title": "Dangerous Vows",
+          "detail": "Aurum Media"
+        },
+        {
+          "title": "Wrongly Accused",
+          "detail": "NetShort"
+        },
+        {
+          "title": "Love Burn on Ice",
+          "detail": "Dir. Shu Zhu"
+        },
+        {
+          "title": "Mistaken Surrogacy for the Tycoon Who Secretly Loves Me",
+          "detail": "Sparkland Pictures"
+        },
+        {
+          "title": "My Billionaire Husband Is Stolen by My Bestie",
+          "detail": "Roaring Pictures"
+        },
+        {
+          "title": "Don't Forget Me",
+          "detail": "LeoMax / Sparkland Pictures"
+        },
+        {
+          "title": "Till We Meet Again",
+          "detail": "Sijing Yang / Crewbite"
+        },
+        {
+          "title": "Love Me Like You Do",
+          "detail": "Sparkland Pictures"
+        },
+        {
+          "title": "Thorns of Desire",
+          "detail": "Wai Sun Cheng / Pandapix"
+        },
+        {
+          "title": "Betrayal",
+          "detail": "Jimmy Wu / Section Cinema"
+        },
+        {
+          "title": "Fated Ties",
+          "detail": "Dom Cutrupi / Sparkland Pictures"
+        },
+        {
+          "title": "Unscented",
+          "detail": "Ravencrew"
+        },
+        {
+          "title": "Your Love Is My Poison",
+          "detail": "Ravencrew"
+        },
+        {
+          "title": "The Return of the Alphas Unclaimed Queens",
+          "detail": "Sparkland / LeoMax"
+        },
+        {
+          "title": "The Naughty Artist",
+          "detail": "Sebastian Wilkins Ortiz / Dark Tides"
+        }
+      ]
+    },
+    {
+      "heading": "Supporting",
+      "rows": [
+        {
+          "title": "Sinfully Yours",
+          "detail": "Supporting lead · Panta Mosleh / Pandapix"
+        },
+        {
+          "title": "Second Chance, Double Trouble",
+          "detail": "Supporting · Jimmy Wu / Section Cinema"
+        },
+        {
+          "title": "Caught in the Act",
+          "detail": "Supporting · Budou Films"
+        },
+        {
+          "title": "Finally See You Carrying Our Baby",
+          "detail": "Supporting · Budou Films"
+        },
+        {
+          "title": "Tides of Desire",
+          "detail": "Supporting · WEC Films"
+        }
+      ]
+    }
+  ]
+}

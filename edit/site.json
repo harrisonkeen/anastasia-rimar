@@ -1,0 +1,287 @@
+{
+  "version": 1,
+  "slots": [
+    {
+      "id": "hero",
+      "label": "Hero photo",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [],
+      "captions": []
+    },
+    {
+      "id": "photo-1",
+      "label": "In frame photo 1",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-2",
+      "label": "In frame photo 2",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-3",
+      "label": "In frame photo 3",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-4",
+      "label": "In frame photo 4",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-5",
+      "label": "In frame photo 5",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-6",
+      "label": "In frame photo 6",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-7",
+      "label": "In frame photo 7",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-8",
+      "label": "In frame photo 8",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-9",
+      "label": "In frame photo 9",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-10",
+      "label": "In frame photo 10",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-11",
+      "label": "In frame photo 11",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-12",
+      "label": "In frame photo 12",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-13",
+      "label": "In frame photo 13",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-14",
+      "label": "In frame photo 14",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-15",
+      "label": "In frame photo 15",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-16",
+      "label": "In frame photo 16",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "feat-1",
+      "label": "Now streaming poster 1",
+      "kind": "poster",
+      "orientation": "portrait",
+      "variants": [],
+      "captions": [
+        {
+          "id": "title",
+          "label": "Title",
+          "max": 80
+        },
+        {
+          "id": "role",
+          "label": "Role",
+          "max": 40
+        }
+      ]
+    },
+    {
+      "id": "feat-2",
+      "label": "Now streaming poster 2",
+      "kind": "poster",
+      "orientation": "portrait",
+      "variants": [],
+      "captions": [
+        {
+          "id": "title",
+          "label": "Title",
+          "max": 80
+        },
+        {
+          "id": "role",
+          "label": "Role",
+          "max": 40
+        }
+      ]
+    },
+    {
+      "id": "feat-3",
+      "label": "Now streaming poster 3",
+      "kind": "poster",
+      "orientation": "portrait",
+      "variants": [],
+      "captions": [
+        {
+          "id": "title",
+          "label": "Title",
+          "max": 80
+        },
+        {
+          "id": "role",
+          "label": "Role",
+          "max": 40
+        }
+      ]
+    },
+    {
+      "id": "film-poster",
+      "label": "Short film poster",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "film-1",
+      "label": "Short film still 1",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "film-2",
+      "label": "Short film still 2 (wide)",
+      "kind": "image",
+      "orientation": "landscape",
+      "variants": [
+        900
+      ],
+      "captions": []
+    },
+    {
+      "id": "side-photo",
+      "label": "Filmography photo",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [],
+      "captions": []
+    }
+  ],
+  "credits": {
+    "fields": [
+      {
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "id": "detail",
+        "label": "Studio or director (supporting: role · studio)"
+      }
+    ],
+    "heading": "<h3>{heading}</h3>",
+    "row": "<li><b>{title}</b><i>{detail}</i></li>",
+    "group": "<div class=\"g\">{heading}<ul>{first}{rest}</ul></div>",
+    "columns": null,
+    "column": null,
+    "joiner": "\n          ",
+    "rowJoiner": ""
+  }
+}

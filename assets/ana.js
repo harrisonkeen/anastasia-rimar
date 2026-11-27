@@ -8,44 +8,27 @@
   const NIGHT = root.dataset.sky === 'night';
 
   // ---------- credits: the full list ----------
-  const CREDITS = [
-    ['Playing Games in Paradise', 'Lead', 'Dir. Bharmal'],
-    ['Dangerous Vows', 'Lead', 'Aurum Media'],
-    ['Wrongly Accused', 'Lead', 'NetShort'],
-    ['Love Burn on Ice', 'Lead', 'Dir. Shu Zhu'],
-    ['Mistaken Surrogacy for the Tycoon Who Secretly Loves Me', 'Lead', 'Sparkland Pictures'],
-    ['My Billionaire Husband Is Stolen by My Bestie', 'Lead', 'Roaring Pictures'],
-    ["Don't Forget Me", 'Lead', 'LeoMax / Sparkland Pictures'],
-    ['Till We Meet Again', 'Lead', 'Sijing Yang / Crewbite'],
-    ['Love Me Like You Do', 'Lead', 'Sparkland Pictures'],
-    ['Thorns of Desire', 'Lead', 'Wai Sun Cheng / Pandapix'],
-    ['Betrayal', 'Lead', 'Jimmy Wu / Section Cinema'],
-    ['Fated Ties', 'Lead', 'Dom Cutrupi / Sparkland Pictures'],
-    ['Unscented', 'Lead', 'Ravencrew'],
-    ['Your Love Is My Poison', 'Lead', 'Ravencrew'],
-    ['The Return of the Alphas Unclaimed Queens', 'Lead', 'Sparkland / LeoMax'],
-    ['The Naughty Artist', 'Lead', 'Sebastian Wilkins Ortiz / Dark Tides'],
-    ['Sinfully Yours', 'Supporting lead', 'Panta Mosleh / Pandapix'],
-    ['Second Chance, Double Trouble', 'Supporting', 'Jimmy Wu / Section Cinema'],
-    ['Caught in the Act', 'Supporting', 'Budou Films'],
-    ['Finally See You Carrying Our Baby', 'Supporting', 'Budou Films'],
-    ['Tides of Desire', 'Supporting', 'WEC Films'],
-  ];
+  // the list lives in the page's <template class="credit-src"> (edit.harrisonkeen.tech rewrites it): groups of title + detail
+  const SRC = [...(document.querySelector('.credit-src')?.content.querySelectorAll('.g') || [])].map(g => ({
+    name: g.querySelector('h3')?.textContent.trim() || '',
+    rows: [...g.querySelectorAll('li')].map(li => [li.querySelector('b')?.textContent || '', li.querySelector('i')?.textContent || '']),
+  }));
+  const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const cols = document.querySelector('.cols');
   if (cols && root.dataset.credits === 'index') {
-    // grouped index: leads in two balanced columns, then the supporting roles; numbered like a filmography
-    const lead = CREDITS.filter(c => c[1] === 'Lead'), sup = CREDITS.filter(c => c[1] !== 'Lead');
-    const row = ([t, r, p], i) => `<li class="credit"><span class="n">${String(i + 1).padStart(2, '0')}</span><span class="t">${t}</span><span class="p">${r === 'Lead' ? '' : r + ' · '}${p}</span></li>`;
-    cols.innerHTML = `<div class="grp"><h3>Leading roles <em>${lead.length}</em></h3><ol class="two">${lead.map(row).join('')}</ol></div>`
-      + `<div class="grp"><h3>Supporting <em>${sup.length}</em></h3><ol>${sup.map((c, i) => row(c, i + lead.length)).join('')}</ol></div>`;
+    // grouped index: the first group in two balanced columns, then the rest; numbered like a filmography
+    let n = 0;
+    const row = ([t, p]) => `<li class="credit"><span class="n">${String(++n).padStart(2, '0')}</span><span class="t">${esc(t)}</span><span class="p">${esc(p)}</span></li>`;
+    cols.innerHTML = SRC.filter(g => g.rows.length).map((g, gi) => `<div class="grp"><h3>${esc(g.name)} <em>${g.rows.length}</em></h3><ol${gi === 0 ? ' class="two"' : ''}>${g.rows.map(row).join('')}</ol></div>`).join('');
   } else if (cols) {
-    CREDITS.forEach(([t, r, p]) => cols.insertAdjacentHTML('beforeend', `<div class="credit"><span class="t">${t}</span><span class="r">${r}</span><span class="p">${p}</span></div>`));
+    SRC.forEach(g => g.rows.forEach(([t, p]) => cols.insertAdjacentHTML('beforeend', `<div class="credit"><span class="t">${esc(t)}</span><span class="r">${esc(g.name)}</span><span class="p">${esc(p)}</span></div>`)));
   }
 
-  // ---------- lightbox (data-full on the img = the full-size file) ----------
+  // ---------- lightbox: the full-size file is the img's largest srcset entry (an editor-replaced photo), else data-full ----------
+  const largest = img => (img.getAttribute('srcset') || '').split(',').map(c => c.trim().split(/\s+/)).filter(c => c[0]).sort((a, b) => parseInt(b[1]) - parseInt(a[1]))[0]?.[0];
   const lb = document.querySelector('.lb'), lbImg = lb.querySelector('img');
   document.addEventListener('click', e => { const b = e.target.closest('.still button'); if (!b) return;
-    const img = b.parentElement.querySelector('img'); lbImg.src = img.dataset.full || img.currentSrc || img.src; lbImg.alt = img.alt; lb.classList.add('open'); lb.querySelector('button').focus(); });
+    const img = b.parentElement.querySelector('img'); lbImg.src = largest(img) || img.dataset.full || img.currentSrc || img.src; lbImg.alt = img.alt; lb.classList.add('open'); lb.querySelector('button').focus(); });
   const closeLb = () => lb.classList.remove('open');
   lb.addEventListener('click', e => { if (e.target !== lbImg) closeLb(); });
   addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
