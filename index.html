@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en" data-credits="index" data-open="write">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Natasha Rimar — Actress</title>
+<meta name="description" content="Natasha Rimar, actress. Photos, featured work, her short film, filmography and contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Hanken+Grotesk:wght@400;500;600&family=Parisienne&family=Newsreader:opsz,wght@6..72,500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/new/white-tee.webp" fetchpriority="high">
+<!-- Package 3 · Velvet — HER PICK (2026-11-26; the pre-merge Velvet page is kept as index-v5.6-p3-velvet.html). The opening
+     and hero are Package 2's (her name writes itself in gold on the dark, light blooms out from it, she surfaces in the white
+     tee on a white page); a velvet arc with a gold rim then rises from the white into Velvet's plum night for the rest: the scroll-driven photo
+     montage (headshots → stills from set → behind the scenes), Featured, the short film, filmography (+ résumé), podcast, and
+     Casting & bookings under Package 1's stars. A soft light follows the pointer across the velvet. -->
+<style>
+  :root {
+    --space: #05060f; --gold: #e2bb7c; --paper: #ffffff; --ink: #2b2026;
+    --bronze: #8c6a35;    /* her gold name, deepened to read on white (4.97:1) */
+    --text: "Newsreader", Georgia, serif;
+    --velvet: #140a10; --plum: #1f0f18; --plum2: #2a1420;
+    --cream: #f4e8e0; --cream2: rgba(244, 232, 224, .74); --line: rgba(244, 232, 224, .16);
+    --blush: #ecb8a6;     /* clickables only */
+    --blush-hi: #f6cfc1;
+    --rose: rgba(236, 184, 166, .55);   /* decorative, quiet */
+    --gutter: clamp(18px, 4.6vw, 64px);
+    --serif: "Bodoni Moda", Didot, Georgia, serif;
+    --sans: "Hanken Grotesk", system-ui, sans-serif;
+    --sh: var(--screen, 100svh);
+  }
+  html { background: var(--paper); scroll-behavior: smooth; }
+  html.at-end { background: var(--velvet); }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 400 17px/1.65 var(--sans); color: var(--cream); -webkit-font-smoothing: antialiased; overflow-x: clip;
+    background: var(--plum) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .85 0 0 0 0 .9 0 0 0 .045 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--blush); outline-offset: 3px; }
+  .lbl { font: 600 12px/1.3 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--rose); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+  /* the velvet sheen: a soft light that follows the pointer (drifts on its own on touch screens) */
+  .sheen { position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: radial-gradient(560px circle at var(--mx, 72%) var(--my, 30%), rgba(236, 170, 190, .085), transparent 66%); }
+  main, footer { position: relative; z-index: 1; }
+
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 999px; font: 600 15.5px/1 var(--sans); letter-spacing: .02em; text-decoration: none; white-space: nowrap;
+    background: var(--blush); color: var(--velvet); box-shadow: 0 14px 30px -16px rgba(236, 184, 166, .7); transition: background .2s, transform .2s; }
+  .btn:hover { background: var(--blush-hi); transform: translateY(-1px); }
+  .btn svg { width: 17px; height: 17px; }
+  .btn.ghost { background: none; color: var(--blush); border: 1px solid currentColor; box-shadow: none; }
+  .btn.ghost:hover { background: rgba(236, 184, 166, .1); }
+
+  /* ---------- hero (Package 2's, her pick): her photo in its feathered frame on white, her studio-grey backdrop held in a soft
+     pool behind the photo and fading out to white everywhere else; the velvet then rises in an arc (.dusk) out of the white. ---------- */
+  .hero { position: relative; z-index: 1; min-height: max(620px, var(--screen, 100svh)); overflow: hidden; isolation: isolate; display: grid; align-items: center; --nx: 24%; --ny: 50%;
+    --herobg: radial-gradient(ellipse 34% 70% at 70% 30%, rgba(212, 207, 201, .95) 0, rgba(214, 209, 203, .8) 38%, rgba(222, 218, 213, .45) 66%, rgba(240, 238, 235, .15) 86%, transparent 100%), var(--paper);
+    background: var(--herobg); }
+  .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 18%; z-index: 0; background: linear-gradient(to bottom, transparent, var(--paper)); }
+  /* the night that covers the hero until the opening lifts it; before the script runs the hero is simply dark */
+  .night { position: absolute; inset: 0; z-index: 1; background: var(--space); pointer-events: none; }
+  .hero.done .night { opacity: 0; transition: opacity 1s ease; }
+  .bloom { display: none; position: absolute; pointer-events: none; }
+  @property --r { syntax: '<length>'; inherits: false; initial-value: 0px; }
+  @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+  /* the opening animates under .play AND .named: they overlap, so nothing is cut when ana.js swaps play → done.
+     Her name first: on the dark, "Natasha Rimar" writes itself in gold; light blooms out from behind the words, the gold
+     settles into bronze, and she comes up on the right. */
+  [data-open="write"] .bloom { display: block; inset: 0; z-index: 1; background: var(--herobg);
+    -webkit-mask-image: radial-gradient(circle at var(--nx) var(--ny), #000 calc(var(--r) * .3), transparent var(--r)); mask-image: radial-gradient(circle at var(--nx) var(--ny), #000 calc(var(--r) * .3), transparent var(--r)); }
+  @keyframes bloom { 0% { --r: 8vmax; opacity: 0; } 22% { opacity: 1; } 100% { --r: 190vmax; opacity: 1; } }
+  @keyframes ink { 0%, 52% { color: var(--gold); text-shadow: 0 0 26px rgba(226, 187, 124, .35); } 100% { color: var(--bronze); text-shadow: 0 1px 14px rgba(255, 255, 255, .3); } }
+  @keyframes pen { from { -webkit-mask-position: 100% 0; mask-position: 100% 0; } to { -webkit-mask-position: 0 0; mask-position: 0 0; } }
+  [data-open="write"] .name { transition: none; opacity: 1; filter: none; translate: 0 0; }
+  [data-open="write"] .hero:not(.play):not(.named) .name { opacity: 0; }
+  [data-open="write"] .name span { -webkit-mask-image: linear-gradient(90deg, #000 44%, transparent 56%); mask-image: linear-gradient(90deg, #000 44%, transparent 56%);
+    -webkit-mask-size: 260% 100%; mask-size: 260% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: 0 0; mask-position: 0 0; }
+  [data-open="write"] :is(.hero.play, .hero.named) .name { animation: ink 5.4s ease both; }
+  [data-open="write"] :is(.hero.play, .hero.named) .name span:first-child { animation: pen 1.9s cubic-bezier(.4,.1,.4,1) .4s both; }
+  [data-open="write"] :is(.hero.play, .hero.named) .name span:last-child { animation: pen 1.5s cubic-bezier(.4,.1,.4,1) 1.75s both; }
+  [data-open="write"] :is(.hero.play, .hero.named) .bloom { animation: bloom 3.1s cubic-bezier(.5,0,.4,1) 3s both, fadeOut .8s ease 6.1s forwards; }
+  @keyframes surface { 0% { opacity: 0; filter: brightness(1.6) blur(10px); } 100% { opacity: 1; filter: brightness(1) blur(0); } }
+  [data-open="write"] :is(.hero.play, .hero.named) .hero-photo { animation: surface 2.2s cubic-bezier(.3,.5,.2,1) 4.1s both; }
+  [data-open="write"] .agency { transition-delay: 1.5s; }
+  [data-open="write"] .hero.done .bloom { opacity: 0; }
+  /* the night eases out under the bloom's last stretch (it must be gone by 6.1s, when the bloom fades): the bloom's soft rim never
+     quite reaches the far corners, so a hard cut here flashed the strip right of her photo from grey to white */
+  [data-open="write"] .hero.play .night, [data-open="write"] .hero.named .night { animation: fadeOut .8s ease-in-out 5.3s both; }
+
+  .hero-photo { position: absolute; inset: 0; z-index: 2; opacity: 0; }
+  .frame { position: absolute; right: 3%; top: 0; height: 100%; width: min(60%, calc(var(--screen, 100svh) * .86));
+    -webkit-mask-image: linear-gradient(to right, transparent 0, rgba(0,0,0,.55) 8%, #000 19%, #000 84%, rgba(0,0,0,.55) 93%, transparent 100%); mask-image: linear-gradient(to right, transparent 0, rgba(0,0,0,.55) 8%, #000 19%, #000 84%, rgba(0,0,0,.55) 93%, transparent 100%); }
+  .frame img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 6%;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 58%, rgba(0,0,0,.6) 76%, rgba(0,0,0,.2) 88%, transparent 97%); mask-image: linear-gradient(to bottom, #000 0, #000 58%, rgba(0,0,0,.6) 76%, rgba(0,0,0,.2) 88%, transparent 97%); }
+  .hero.done .hero-photo { opacity: 1; animation: none; }
+  .veil { position: absolute; inset: 0; z-index: 3; pointer-events: none; background: linear-gradient(100deg, rgba(255,255,255,.7) 0 18%, transparent 46%); opacity: 0; transition: opacity 1.6s ease; }
+  .hero.done .veil { opacity: 1; }
+  .hero-copy { position: relative; z-index: 5; padding: 120px var(--gutter) 110px; max-width: 760px; }
+  .name { margin: 0; font: 400 clamp(68px, 9.6vw, 156px)/.92 "Parisienne", cursive; color: var(--bronze); text-shadow: 0 1px 18px rgba(255,255,255,.7); }
+  .name span { display: block; padding-top: .22em; margin-top: -.22em; }   /* headroom: the N's top flourish rises above the line box and the pen mask would clip it */
+  .name span + span { padding-left: .9em; }
+  /* the N's lead-in swash also reaches left of its box: same trick, so the pen mask doesn't shave it off */
+  .name span:first-child { padding-left: .32em; margin-left: -.32em; }
+  .name { opacity: 0; filter: blur(8px); translate: 0 14px; transition: opacity 2s ease .8s, filter 2s ease .8s, translate 2.6s cubic-bezier(.2,.7,.2,1) .8s; }
+  .hero.named .name { opacity: 1; filter: blur(0); translate: 0 0; }
+  .agency { margin: 28px 0 0 .3em; font: 500 16px/1.4 var(--text); letter-spacing: .06em; color: var(--ink); opacity: 0; transition: opacity 1.6s ease 2.1s; }
+  .hero.named .agency { opacity: .82; }
+  .horizon { position: absolute; left: 0; right: 0; bottom: 0; z-index: 5; height: 46px; pointer-events: none; }
+  .horizon svg { width: 100%; height: 100%; display: block; }
+  .reveal-late { opacity: 0; transition: opacity 3s ease 1.4s; }
+  .hero.sky-in .reveal-late { opacity: 1; }
+
+  /* the hero → page edge (his pick, 2026-11-26): the velvet rises in one shallow curve, a gold hairline on its rim */
+  .dusk { position: relative; z-index: 1; height: clamp(70px, 8vw, 130px); background: var(--paper); pointer-events: none; }
+  .dusk svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  /* while the hero is still night, the band under it stays night too (its white corners showed through Firefox's bottom toolbar
+     on his iPhone); it turns white with the night's fade, so the arc only appears once the hero is white */
+  @keyframes duskIn { from { background-color: var(--space); } to { background-color: var(--paper); } }
+  [data-open="write"] .dusk { background: var(--space); }
+  [data-open="write"] .dusk path:last-child { opacity: 0; }
+  [data-open="write"] :is(.hero.play, .hero.named) + .dusk { animation: duskIn .8s ease-in-out 5.3s both; }
+  [data-open="write"] :is(.hero.play, .hero.named) + .dusk path:last-child { animation: fadeOut .8s ease-in-out 5.3s reverse both; }
+  [data-open="write"] .hero.done + .dusk { background: var(--paper); }
+  [data-open="write"] .hero.done + .dusk path:last-child { opacity: 1; }
+
+  /* ---------- section heads: heading + a short straight blush rule ---------- */
+  section { position: relative; padding: clamp(84px, 9vw, 136px) var(--gutter); }
+  .head { max-width: 1240px; margin: 0 auto clamp(34px, 4vw, 54px); }
+  .head h2, .intro h2 { margin: 0; font: italic 500 clamp(42px, 5.2vw, 72px)/1 var(--serif); font-variation-settings: "opsz" 72; }
+  .sw { display: block; width: 48px; height: 2px; margin-top: 18px; border-radius: 1px; background: var(--rose); }
+  .still { margin: 0; position: relative; overflow: hidden; background: #2a1a22; }
+  .still img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s ease; }
+  .still:hover img { transform: scale(1.03); }
+  .still button { all: unset; position: absolute; inset: 0; cursor: zoom-in; }
+
+  /* ---------- the montage: vertical scroll slides a reel of stills past at different depths ---------- */
+  .montage { padding: 0; background: linear-gradient(to bottom, var(--velvet), rgba(42, 20, 32, .55) 30%, rgba(42, 20, 32, .55) 70%, var(--plum)); }
+  .stage { position: relative; height: var(--sh); min-height: 560px; overflow: hidden; display: flex; align-items: center; }
+  .montage.run .stage { position: sticky; top: 0; }
+  .track { --hk: 1.12; position: relative; display: flex; align-items: center; gap: clamp(34px, 4.4vw, 76px); padding: 0 max(var(--gutter), 8vw) 0 var(--gutter); will-change: transform; }
+  .montage:not(.run) .track { overflow-x: auto; scroll-snap-type: x mandatory; width: 100%; padding-block: 30px; }
+  .montage:not(.run) .track > * { scroll-snap-align: center; }
+  .intro { flex: 0 0 auto; width: clamp(240px, 26vw, 400px); }
+  .intro p { margin: 18px 0 0; color: var(--cream2); max-width: 26ch; }
+  .f { flex: 0 0 auto; height: calc(var(--sh) * var(--h) * var(--hk)); max-height: 88%; aspect-ratio: var(--a); border-radius: 3px;
+    translate: var(--dx, 0px) calc(var(--sh) * var(--y) * var(--hk)); box-shadow: 0 34px 60px -30px rgba(0, 0, 0, .85); }
+  .f.near { z-index: 2; }
+  .f figcaption { position: absolute; left: 0; bottom: -26px; font: 600 11px/1 var(--sans); letter-spacing: .2em; color: var(--rose); }
+  .f { overflow: visible; } .f .clip { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; }
+  .meter { position: absolute; left: var(--gutter); right: var(--gutter); bottom: calc(26px + env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 16px; }
+  .meter .lbl { color: var(--cream2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .meter i { position: relative; flex: 1; height: 1px; background: var(--line); }
+  .meter i::after { content: ""; position: absolute; inset: 0; background: var(--blush); transform-origin: 0 0; transform: scaleX(var(--p, 0)); }
+  .montage:not(.run) .meter { display: none; }
+
+  /* ---------- single photos placed through the page (they drift a little as you scroll, desktop only) ---------- */
+  .loose { position: absolute; z-index: 3; translate: 0 var(--py, 0px); }
+  .loose .still { aspect-ratio: 4 / 5.4; border-radius: 3px; box-shadow: 0 34px 60px -28px rgba(0, 0, 0, .8); }
+
+  /* featured: three small posters */
+  .featured .head, .posters { max-width: 860px; }
+  .posters { list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 3vw, 40px); }
+  .posters a { display: block; text-decoration: none; }
+  .posters .pic { aspect-ratio: 3 / 4; overflow: hidden; border-radius: 3px; box-shadow: 0 26px 44px -24px rgba(0, 0, 0, .9); transition: translate .5s cubic-bezier(.2, .7, .2, 1); }
+  .posters img { width: 100%; height: 100%; object-fit: cover; }
+  .posters a:hover .pic { translate: 0 -6px; }
+  .posters b { display: block; margin-top: 14px; font: italic 500 19px/1.25 var(--serif); }
+  .posters .lbl { display: block; margin-top: 6px; font-size: 11px; }
+  .posters a:hover b { color: var(--blush); }
+  .featured { z-index: 2; }
+
+  /* the short film: lantern light on the velvet */
+  .film { background: linear-gradient(var(--plum), rgba(31, 15, 24, 0) 200px), linear-gradient(to top, var(--plum), rgba(31, 15, 24, 0) 200px), radial-gradient(40% 60% at 26% 60%, rgba(214, 140, 60, .16), transparent 70%), var(--velvet); }
+  .look { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, .56fr) minmax(0, 1fr); gap: clamp(14px, 2vw, 26px); align-items: end; }
+  .look .still { border-radius: 3px; }
+  .look .poster { aspect-ratio: 1136 / 1392; }
+  /* the lantern still is landscape (3:2) and shows whole; the collar portrait fills the rest of the column so its bottom meets the poster's */
+  .look .frames { align-self: stretch; display: flex; flex-direction: column; gap: clamp(10px, 1.4vw, 16px); }
+  .look .frames .still:first-child { flex: 1 1 0; min-height: 0; }
+  .look .frames .still:first-child img { position: absolute; inset: 0; object-position: 50% 30%; }
+  .look .frames .still.wide { flex: none; aspect-ratio: 4096 / 2741; }
+  .look .copy { align-self: center; padding-left: clamp(4px, 2vw, 24px); }
+  .look h3 { margin: 12px 0 0; font: italic 500 clamp(34px, 3.5vw, 52px)/1.05 var(--serif); }
+  .look p { margin: 16px 0 26px; max-width: 34ch; color: var(--cream2); }
+  .acts { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  /* filmography: her portrait stays beside the list as it scrolls */
+  .fl { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, .34fr) minmax(0, 1fr); gap: clamp(30px, 5vw, 80px); align-items: start; }
+  .fl .side { position: sticky; top: 40px; }
+  .fl .side .still { aspect-ratio: 4 / 5; border-radius: 3px; box-shadow: 0 34px 60px -30px rgba(0, 0, 0, .85); }
+  .fl .head { margin-left: 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 18px 24px; }
+  .fl .head .btn { padding: 12px 20px; font-size: 14.5px; }
+  .grp + .grp { margin-top: clamp(34px, 4vw, 52px); }
+  .grp h3 { margin: 0 0 8px; font: 600 12px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--rose); }
+  .grp h3 em { font-style: normal; color: var(--cream); margin-left: 6px; }
+  .grp ol { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line); }
+  .grp ol.two { columns: 2; column-gap: clamp(26px, 3.4vw, 54px); }
+  .grp .credit { break-inside: avoid; display: grid; grid-template-columns: 36px 1fr; column-gap: 8px; padding: 11px 0; border-top: 1px solid var(--line); }
+  .grp .n { grid-row: span 2; font: 500 12px/1.9 var(--sans); letter-spacing: .08em; color: var(--rose); font-variant-numeric: tabular-nums; }
+  .grp .t { font: italic 500 19px/1.3 var(--serif); }
+  .grp .p { font-size: 14.5px; color: var(--cream2); }
+  .grp .p:empty { display: none; }
+  .extras { margin-top: clamp(44px, 5vw, 64px); display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(26px, 4vw, 56px); }
+  .extras h3 { margin: 0 0 10px; font: 600 12px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--rose); }
+  .extras ul { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--line); }
+  .extras li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 15.5px; display: flex; justify-content: space-between; gap: 16px; }
+  .extras li span:last-child { color: var(--cream2); text-align: right; }
+  .award { padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .award b { display: block; font: italic 500 26px/1.15 var(--serif); }
+  .award span { color: var(--cream2); font-size: 15.5px; }
+
+  /* podcast strip */
+  .podcast { padding-top: 0; }
+  .pod { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: clamp(170px, 22vw, 260px) 1fr auto; gap: clamp(18px, 3vw, 40px); align-items: center;
+    padding: 18px; border-radius: 6px; background: rgba(42, 20, 32, .7); border: 1px solid var(--line); }
+  .pod .thumb { display: block; aspect-ratio: 16 / 9; overflow: hidden; position: relative; border-radius: 3px; }
+  .pod .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; }
+  .pod .thumb::after { content: ""; position: absolute; inset: 50% auto auto 50%; width: 46px; height: 46px; translate: -50% -50%; border-radius: 50%;
+    background: rgba(20, 10, 16, .72) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6.5v11l9-5.5z' fill='%23f4e8e0'/%3E%3C/svg%3E") center / 22px no-repeat; }
+  .pod b { display: block; margin-top: 6px; font: italic 500 clamp(22px, 2.4vw, 30px)/1.2 var(--serif); }
+
+  /* footer: casting & bookings under Package 1's stars, with one last photo melting into the dark */
+  footer { background: linear-gradient(var(--plum), rgba(31, 15, 24, 0) 220px), var(--velvet); overflow: hidden; }
+  /* the stars (drawn below; same look as P1's night): fade in from the top so there's no edge where the footer starts */
+  .stars { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 240px); mask-image: linear-gradient(to bottom, transparent, #000 240px); }
+  .ftw { position: relative; max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .62fr); }
+  .ft { padding: clamp(90px, 10vw, 140px) var(--gutter) calc(36px + env(safe-area-inset-bottom)); display: grid; grid-template-columns: 1fr 1fr; gap: 44px clamp(26px, 4vw, 60px); align-content: start; }
+  .ft h2 { grid-column: 1 / -1; margin: 0; font: italic 500 clamp(50px, 6.6vw, 98px)/1 var(--serif); }
+  .ft h2 .sw { margin-top: 22px; width: 64px; }
+  .rep .lbl { display: block; margin-bottom: 10px; }
+  .rep b { display: block; font: italic 500 clamp(28px, 2.6vw, 36px)/1.2 var(--serif); }
+  .rep p { margin: 8px 0 0; font-size: clamp(17px, 1.4vw, 19.5px); line-height: 1.7; }
+  .rep a { color: var(--blush); text-underline-offset: 3px; }
+  .rep a:hover { color: var(--blush-hi); }
+  .socials { grid-column: 1 / -1; display: flex; gap: 12px; flex-wrap: wrap; }
+  .socials a { display: inline-flex; align-items: center; gap: 10px; padding: 13px 20px; border-radius: 999px; border: 1px solid rgba(236, 184, 166, .6); color: var(--blush); text-decoration: none; font: 500 16px/1 var(--sans); }
+  .socials a:hover { background: var(--blush); color: var(--velvet); }
+  .socials svg { width: 19px; height: 19px; }
+  .socials a.cv { background: var(--blush); color: var(--velvet); border-color: var(--blush); }
+  .socials a.cv:hover { background: var(--blush-hi); border-color: var(--blush-hi); }
+  .colophon { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 12px; font-size: 14px; opacity: .75; padding-top: 22px; border-top: 1px solid var(--line); }
+  .last { position: relative; min-height: 100%; }
+  /* her photo keeps a soft margin of its own dark backdrop that melts into the velvet (gown-soft*.webp: the Vision matte from
+     gown-cut grown ~40px + feathered 40px, backdrop dimmed to 75%, faded out before the frame edges), so she never looks cut out;
+     the stars still run on behind the halo, and the dress fades out at the bottom */
+  .last img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;
+    -webkit-mask-image: linear-gradient(to top, transparent, #000 30%); mask-image: linear-gradient(to top, transparent, #000 30%); }
+  .built-by { display: inline-block; margin-left: 1.1em; padding-left: 1.1em; border-left: 1px solid color-mix(in srgb, currentColor 35%, transparent); font-size: 12px; font-weight: 400; letter-spacing: .02em; text-transform: none; opacity: 0.85; }
+  .built-by a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); }
+  .built-by a:hover { text-decoration-color: currentColor; }
+  @media (max-width: 600px) { .built-by { display: block; margin: 6px 0 0; padding: 0; border: 0; } }
+
+  /* lightbox */
+  .lb { position: fixed; inset: 0; z-index: 40; background: rgba(14, 7, 11, .95); display: grid; place-items: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity .35s ease; }
+  .lb.open { opacity: 1; pointer-events: auto; }
+  .lb img { max-height: calc(100svh - 80px); max-width: min(92vw, 900px); width: auto; box-shadow: 0 30px 80px rgba(0, 0, 0, .5); }
+  .lb button { position: absolute; top: 16px; right: 16px; background: none; border: 1px solid var(--cream); border-radius: 999px; color: var(--cream); padding: 9px 18px; font: 500 15px/1 var(--sans); cursor: pointer; }
+
+  @media (max-width: 1100px) {
+  }
+  /* ---------- phones ---------- */
+  @media (max-width: 760px) {
+    body { font-size: 16.5px; }
+    /* hero (P2's phone layout): the frame takes the full width and the top of the screen; the name sits on the white under her */
+    .hero { align-items: end; min-height: var(--screen, 100svh); }
+    .frame { right: 0; width: 100%; height: 78%; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%); mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%); }
+    .frame img { object-position: 34% 0; }
+    /* the bloom opens from between the two words (Rimar's "i" and Natasha's second "a"); the script below measures the exact spot */
+    .hero { --nx: 34%; --ny: 76%; --herobg: radial-gradient(ellipse 70% 46% at 50% 28%, rgba(212, 207, 201, .95) 0, rgba(214, 209, 203, .75) 40%, rgba(230, 227, 223, .3) 75%, transparent 100%), var(--paper); }
+    .veil { background: linear-gradient(to top, rgba(255,255,255,.92) 0 16%, transparent 42%); }
+    .hero-copy { padding: 0 var(--gutter) 70px; }
+    .name { font-size: clamp(54px, 16vw, 80px); }
+    .name span + span { padding-left: .6em; }
+    .agency { margin-top: 16px; font-size: 14px; }
+    .dusk { height: 40px; }
+    .track { --hk: .72; }
+    .intro { width: 74vw; }
+    .posters { gap: 12px; } .posters b { font-size: 15px; } .posters .lbl { font-size: 10px; letter-spacing: .14em; }
+    .look { grid-template-columns: 1.3fr 1fr; align-items: stretch; }
+    .look .frames { display: contents; }
+    .look .frames .still:first-child { min-height: 0; }
+    .look .frames .still.wide { grid-column: 1 / -1; }
+    .look .copy { grid-column: 1 / -1; padding: 8px 0 0; }
+    .fl { grid-template-columns: 1fr; }
+    .fl .side { position: relative; top: auto; width: 62%; margin: 0 auto 6px; order: 2; }
+    .fl .main { order: 1; }
+    .grp ol.two { columns: 1; }
+    .extras { grid-template-columns: 1fr; }
+    .pod { grid-template-columns: 1fr; }
+    .pod .btn { justify-self: start; }
+    .ftw { grid-template-columns: 1fr; }
+    .last { order: -1; height: 380px; }
+    .last img { -webkit-mask-image: linear-gradient(to top, transparent, #000 45%); mask-image: linear-gradient(to top, transparent, #000 45%); }
+    .ft { grid-template-columns: 1fr; padding-top: 10px; }
+    /* "Casting & bookings" on one line: sized to the column (the words run ~8.6× the font size wide) */
+    .ft h2 { white-space: nowrap; font-size: min(50px, calc((100vw - 2 * var(--gutter)) / 9)); }
+    /* "Natasha Rimar · Actress · Vancouver · Non-union" on one line, the built-by credit underneath */
+    .colophon { flex-wrap: wrap; justify-content: flex-start; gap: 0; }
+    .colophon > span:first-child { display: contents; }
+    .colophon > span:last-child { order: 1; margin-left: .35em; }
+    .colophon > span:last-child::before { content: "· "; }
+    .colophon .built-by { order: 2; flex-basis: 100%; }
+  }
+  @media (max-width: 340px) { .colophon { font-size: 12.5px; } }
+  @media (prefers-reduced-motion: reduce) {
+    .hero *, .hero *::after, .hero::after, .dusk, .dusk path { animation: none !important; }
+    .name, .agency, .reveal-late, .veil { transition: none !important; }
+    .loose { translate: none; }
+  }
+</style>
+<script>
+  addEventListener('scroll', () => document.documentElement.classList.toggle('at-end', scrollY > document.documentElement.scrollHeight / 2), { passive: true });
+</script>
+<script>
+  // Phones: pin the hero (and the montage stage) to the first screen height, in px — in-app browsers resize svh as their toolbar slides away.
+  (() => { if (!matchMedia('(pointer: coarse)').matches) return;
+    const r = document.documentElement; let w = 0;
+    const pin = () => { if (innerWidth === w) return; w = innerWidth; r.style.setProperty('--screen', innerHeight + 'px'); };
+    pin(); addEventListener('resize', pin); })();
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="6.5" r=".9" fill="currentColor"/></symbol>
+  <symbol id="dl" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7 10.5l5 5 5-5"/><path d="M5 19.5h14"/></g></symbol>
+</svg>
+<div class="sheen" aria-hidden="true"></div>
+
+<header class="hero" id="top" data-t="5.0">
+  <div class="night" aria-hidden="true"></div>
+  <div class="bloom" aria-hidden="true"></div>
+  <div class="hero-photo"><div class="frame"><img src="assets/new/white-tee.webp" alt="Natasha Rimar, headshot in a white tee, looking over her shoulder" width="1179" height="1763" fetchpriority="high"></div></div>
+  <div class="veil" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <h1 class="name"><span>Natasha</span><span>Rimar</span></h1>
+    <p class="agency">Trisko Talent Management</p>
+  </div>
+  <div class="horizon reveal-late" aria-hidden="true">
+    <svg viewBox="0 0 1440 46" preserveAspectRatio="none">
+      <defs><linearGradient id="hz" x1="0" x2="1"><stop offset="0" stop-color="#e2bb7c" stop-opacity="0"/><stop offset=".5" stop-color="#e2bb7c"/><stop offset="1" stop-color="#e2bb7c" stop-opacity="0"/></linearGradient></defs>
+      <path d="M0 45.5H1440" stroke="url(#hz)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+    </svg>
+  </div>
+</header>
+<div class="dusk" aria-hidden="true">
+  <svg viewBox="0 0 1440 130" preserveAspectRatio="none">
+    <defs><linearGradient id="arcrim" x1="0" x2="1"><stop offset="0" stop-color="#e2bb7c" stop-opacity="0"/><stop offset=".5" stop-color="#c9a160"/><stop offset="1" stop-color="#e2bb7c" stop-opacity="0"/></linearGradient></defs>
+    <path d="M0 131V112Q720 -34 1440 112V131Z" fill="#140a10"/>
+    <path d="M0 112Q720 -34 1440 112" fill="none" stroke="url(#arcrim)" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+  </svg>
+</div>
+
+<main>
+  <section class="montage" id="photos" aria-label="Photos">
+    <div class="stage">
+      <div class="track">
+        <div class="intro">
+          <span class="lbl">Photos</span>
+          <h2>In frame</h2>
+          <span class="sw" aria-hidden="true"></span>
+          <p>Headshots, stills from set, and behind the scenes.</p>
+        </div>
+        <!-- order (2026-11-26, her note): headshots → professional stills from productions → behind the scenes -->
+        <figure class="f still near" style="--h:.7;--y:-.03;--a:1100/1640" data-d="-.05"><div class="clip"><img src="assets/photos/turtleneck.jpg" alt="Headshot in a black turtleneck, gold earrings" width="1100" height="1640"></div><button aria-label="Enlarge"></button><figcaption>01</figcaption></figure>
+        <figure class="f still" style="--h:.54;--y:.09;--a:1179/1764" data-d=".05"><div class="clip"><img src="assets/photos/plum.jpg" alt="Headshot in a plum knit against a dark backdrop" width="1179" height="1764"></div><button aria-label="Enlarge"></button><figcaption>02</figcaption></figure>
+        <figure class="f still near" style="--h:.66;--y:-.08;--a:1100/1646" data-d="-.03"><div class="clip"><img src="assets/photos/green.jpg" alt="Headshot in an olive knit against a warm backdrop" width="1100" height="1646"></div><button aria-label="Enlarge"></button><figcaption>03</figcaption></figure>
+        <figure class="f still" style="--h:.5;--y:.1;--a:1100/1378" data-d=".04"><div class="clip"><img src="assets/photos/denim.jpg" alt="In a denim jacket, soft window light" width="1100" height="1378" loading="lazy"></div><button aria-label="Enlarge"></button><figcaption>04</figcaption></figure>
+        <figure class="f still near" style="--h:.64;--y:-.04;--a:1100/1646" data-d="-.04"><div class="clip"><img src="assets/photos/red.jpg" alt="Laughing, hands in her hair, against a red wall" width="1100" height="1646" loading="lazy"></div><button aria-label="Enlarge"></button><figcaption>05</figcaption></figure>
+        <figure class="f still" style="--h:.5;--y:.1;--a:1179/1709" data-d=".05"><div class="clip"><img src="assets/new/necklace-900.webp" data-full="assets/new/necklace.webp" alt="Close portrait with a beaded necklace" width="900" height="1305" loading="lazy"></div><button aria-label="Enlarge"></button><figcaption>06</figcaption></figure>
+        <figure class="f still near" style="--h:.68;--y:-.06;--a:1179/1708" data-d="-.06"><div class="clip"><img src="assets/new/white-dress-900.webp" data-full="assets/new/white-dress.webp" alt="In a white halter gown, hair in soft curls" width="900" height="1304" style="object-position:50% 18%" loading="lazy"></div><button aria-label="Enlarge"></button><figcaption>07</figcaption></figure>
+        <figure class="f still" style="--h:.5;--y:.1;--a:1132/1652" data-d=".05"><div class="clip"><img src="assets/new/gala-900.webp" data-full="assets/new/gala.webp" alt="In a black strapless gown, holding his hand as she looks up at him" width="900" height="1313" style="object-position:62% 22%" loading="lazy"></div><button aria-label="Enlarge"></button><figcaption>08</figcaption></figure>
+        <figure class="f still" style="--h:.62;--y:-.09;--a:1179/1570" data-d="0"><div class="clip"><img src="assets/scenes/dance-dip.jpg" alt="Dipped in a dance in a satin gown, black and white" width="1179" height="1570" loading="lazy"></div><button aria-label="Enlarge"></button><figcaption>09</figcaption></figure>
+        <figure class="f still near" style="--h:.6;--y:.04;--a:1000/1398" data-d="-.04"><div class="clip"><img src="assets/scenes/tears.jpg" alt="In a bridal fur wrap, fighting back tears" width="1000" height="1398" style="object-position:50% 30%" loading="lazy"></div><button aria-label="Enlarge"></button><figcaption>10</figcaption></figure>
+        <figure class="f still" style="--h:.52;--y:-.12;--a:1179/1714" data-d=".05"><div class="clip"><img src="assets/new/bedside-veil-900.webp" data-full="assets/new/bedside-veil.webp" alt="In a bridal veil and fur, weeping at a hospital bedside" width="900" height="1308" style="object-position:50% 30%" loading="lazy"></div><button aria-label="Enlarge"></button><figcaption>11</figcaption></figure>
+        <figure class="f still" style="--h:.54;--y:.09;--a:1000/1474" data-d=".03"><div class="clip"><img src="assets/scenes/embrace.jpg" alt="Held from behind as she breaks down" width="1000" height="1474" loading="lazy"></div><button aria-label="Enlarge"></button><figcaption>12</figcaption></figure>
+        <figure class="f still near" style="--h:.64;--y:-.03;--a:1000/1490" data-d="-.05"><div class="clip"><img src="assets/scenes/skating.jpg" alt="Figure skating in a lilac dress" width="1000" height="1490" style="object-position:50% 38%" loading="lazy"></div><button aria-label="Enlarge"></button><figcaption>13</figcaption></figure>
+        <figure class="f still" style="--h:.46;--y:.12;--a:1179/1424" data-d=".04"><div class="clip"><img src="assets/new/crash-900.webp" data-full="assets/new/crash.webp" alt="On set: crouched on a smoky road, phone to her ear" width="900" height="1087" style="object-position:40% 30%" loading="lazy"></div><button aria-label="Enlarge"></button><figcaption>14</figcaption></figure>
+        <figure class="f still" style="--h:.34;--y:-.16;--a:1000/647" data-d=".07"><div class="clip"><img src="assets/scenes/bts-camera.jpg" alt="Behind the scenes: lining up a shot with the camera crew" width="1000" height="647" loading="lazy"></div><button aria-label="Enlarge"></button><figcaption>15</figcaption></figure>
+        <figure class="f still near" style="--h:.36;--y:.16;--a:1000/652" data-d="-.03"><div class="clip"><img src="assets/scenes/bts-room.jpg" alt="Behind the scenes: a scene being shot in a living room" width="1000" height="652" loading="lazy"></div><button aria-label="Enlarge"></button><figcaption>16</figcaption></figure>
+      </div>
+      <div class="meter" aria-hidden="true"><span class="lbl"><span class="cur">01</span> / 16</span><i></i></div>
+    </div>
+  </section>
+
+  <section class="featured" id="featured">
+    <div class="head"><h2>Now streaming</h2><span class="sw" aria-hidden="true"></span></div>
+    <ul class="posters">
+      <li><a href="https://www.imdb.com/title/tt39088911/" target="_blank" rel="noopener"><div class="pic"><img src="assets/new/poster-surrogacy-900.webp" alt="Mistaken Surrogacy Christmas Destiny poster" width="900" height="1195" loading="lazy"></div><b>Mistaken Surrogacy Christmas Destiny</b><span class="lbl">Lead</span></a></li>
+      <li><a href="https://www.imdb.com/title/tt36724637/" target="_blank" rel="noopener"><div class="pic"><img src="assets/new/poster-loveme.webp" alt="Love Me Like You Do poster" width="1279" height="720" style="object-position:50% 50%" loading="lazy"></div><b>Love Me Like You Do</b><span class="lbl">Lead</span></a></li>
+      <li><a href="https://www.imdb.com/title/tt38558185/" target="_blank" rel="noopener"><div class="pic"><img src="assets/new/poster-luna.webp" alt="The Scent of My Fated Luna poster" width="640" height="813" loading="lazy"></div><b>The Scent of My Fated Luna</b><span class="lbl">Lead</span></a></li>
+    </ul>
+  </section>
+
+  <section class="film" id="film">
+    <div class="head"><span class="lbl">Her own short film</span><h2>First look</h2><span class="sw" aria-hidden="true"></span></div>
+    <div class="look">
+      <figure class="still poster"><img src="assets/new/film-poster-900.webp" data-full="assets/new/film-poster.webp" alt="If She Asked Me To poster: a lit lantern held in the dark" loading="lazy"><button aria-label="Enlarge"></button></figure>
+      <div class="frames">
+        <figure class="still"><img src="assets/new/film-collar-900.webp" data-full="assets/new/film-collar.webp" alt="Natasha in period costume with a lace collar, from If She Asked Me To" loading="lazy"><button aria-label="Enlarge"></button></figure>
+        <figure class="still wide"><img src="assets/new/film-lantern-900.webp" data-full="assets/new/film-lantern.webp" alt="Natasha by lantern light, from If She Asked Me To" loading="lazy"><button aria-label="Enlarge"></button></figure>
+      </div>
+      <div class="copy">
+        <span class="lbl">In pre-production</span>
+        <h3>If She Asked Me To</h3>
+        <p>An original period romance and mystery, written by Natasha Rimar.</p>
+        <div class="acts">
+          <a class="btn" href="https://www.instagram.com/ifsheaskedmetofilm/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ig"/></svg>Follow the film</a>
+          <a class="btn ghost" href="https://www.gofundme.com/f/help-fun-if-she-asked-me-to" target="_blank" rel="noopener">Support on GoFundMe</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="credits" id="credits">
+    <div class="fl">
+      <div class="side"><figure class="still"><img src="assets/photos/white-lace.jpg" alt="Headshot in a white lace-trim top" width="1179" height="1758" style="object-position:50% 20%" loading="lazy"><button aria-label="Enlarge"></button></figure></div>
+      <div class="main">
+        <div class="head"><div><h2>Filmography</h2><span class="sw" aria-hidden="true"></span></div><a class="btn ghost" href="assets/natasha-rimar-resume.pdf" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#dl"/></svg>Résumé (PDF)</a></div>
+        <div class="cols"></div>
+        <div class="extras">
+          <div>
+            <h3>Training</h3>
+            <ul>
+              <li><span>On-camera acting workshop · Simon Longmore</span><span>VADA</span></li>
+              <li><span>Youth &amp; teen film/TV workshop · Danielle Aufiero, Amber Horn</span><span>Vancouver</span></li>
+              <li><span>Musical theatre · Cher Zorrilla</span><span>Stage Coach Performing Arts</span></li>
+              <li><span>Musical theatre · Chad Matchette</span><span>Lindbjerg Academy</span></li>
+              <li><span>Private lessons · Julian Paul</span><span>Vancouver</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Award</h3>
+            <div class="award"><b>Actor of the Year</b><span>Stage Coach Performing Arts</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="podcast" id="podcast">
+    <div class="pod">
+      <a class="thumb" href="https://www.youtube.com/watch?v=1HpyxwLUcAs" target="_blank" rel="noopener" aria-label="Watch the podcast on YouTube"><img src="assets/new/podcast-900.webp" alt="" loading="lazy"></a>
+      <div>
+        <span class="lbl">On the podcast · EP 11</span>
+        <b>Height, heels &amp; channeling emotions</b>
+      </div>
+      <a class="btn" href="https://www.youtube.com/watch?v=1HpyxwLUcAs" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>Listen</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <canvas class="stars" aria-hidden="true"></canvas>
+  <div class="ftw">
+    <div class="ft">
+      <h2>Casting &amp; bookings<span class="sw" aria-hidden="true"></span></h2>
+      <div class="rep">
+        <span class="lbl">Agent</span>
+        <b>Katelyn Spencer</b>
+        <p>Trisko Talent Management, Vancouver<br>
+          <a href="mailto:katelyn@triskotalent.com">katelyn@triskotalent.com</a><br>
+          <a href="tel:+16046377009">604-637-7009</a> · <a href="https://triskotalent.com" target="_blank" rel="noopener">triskotalent.com</a></p>
+      </div>
+      <div class="rep">
+        <span class="lbl">Direct</span>
+        <b>Natasha Rimar</b>
+        <p><a href="mailto:anastasiarimar@yahoo.com">anastasiarimar@yahoo.com</a></p>
+      </div>
+      <div class="socials">
+        <a class="cv" href="assets/natasha-rimar-resume.pdf" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#dl"/></svg>Résumé (PDF)</a>
+        <a href="https://www.imdb.com/name/nm16841707/" target="_blank" rel="noopener">IMDb</a>
+        <a href="https://www.instagram.com/natasha.rimar/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ig"/></svg>Instagram</a>
+        <a href="https://www.tiktok.com/@anastasianatasharimar" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 3 2.5 5 5.5 5.3"/></svg>TikTok</a>
+      </div>
+      <div class="colophon"><span>Natasha Rimar · Actress · Vancouver<span class="built-by">Built by Harrison Keen, <a href="https://harrisonkeen.tech" rel="noopener">harrisonkeen.tech</a></span></span><span>Non-union</span></div>
+    </div>
+    <div class="last" aria-hidden="true"><img src="assets/new/gown-soft-900.webp" srcset="assets/new/gown-soft-900.webp 900w, assets/new/gown-soft.webp 1179w" sizes="(max-width: 760px) 100vw, 38vw" alt="" loading="lazy"></div>
+  </div>
+</footer>
+
+<div class="lb" role="dialog" aria-modal="true" aria-label="Photo"><img alt=""><button type="button">Close</button></div>
+
+<script>
+  /* P3 only: the montage, the loose photos' drift, and the velvet sheen */
+  (() => {
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const mt = document.querySelector('.montage'), stage = mt.querySelector('.stage'), track = mt.querySelector('.track');
+    const frames = [...track.querySelectorAll('.f')], cur = mt.querySelector('.cur');
+    const loose = [...document.querySelectorAll('.loose')];
+    let dist = 0;
+    if (!still) mt.classList.add('run');
+    // never clear the montage's height while measuring: collapsing it for even one layout made the page ~5000px shorter, and the
+    // browser clamped the scroll position into Filmography (the jump he saw in Firefox on his phone, scrolling up from the footer)
+    // phones: the opening's light blooms out from between the two words, midway between Natasha's second "a" and Rimar's "i"
+    // (measured from the glyphs, so it holds at every phone width and height; desktop keeps the CSS spot)
+    const hero = document.querySelector('.hero'), phone = matchMedia('(max-width: 760px)');
+    function aim() {
+      if (!phone.matches) { hero.style.removeProperty('--nx'); hero.style.removeProperty('--ny'); return; }
+      const [n, rm] = hero.querySelectorAll('.name span'), hb = hero.getBoundingClientRect();
+      const mid = (el, i) => { const g = document.createRange(); g.setStart(el.firstChild, i); g.setEnd(el.firstChild, i + 1);
+        const b = g.getBoundingClientRect(); return [b.left + b.width / 2, b.top + b.height / 2]; };
+      const a = mid(n, 3), i = mid(rm, 1);
+      hero.style.setProperty('--nx', ((a[0] + i[0]) / 2 - hb.left).toFixed(1) + 'px');
+      hero.style.setProperty('--ny', ((a[1] + i[1]) / 2 - hb.top).toFixed(1) + 'px');
+    }
+    function size() {
+      aim();
+      if (still) return;
+      dist = Math.max(0, track.scrollWidth - innerWidth);
+      const h = (stage.offsetHeight + dist) + 'px';
+      if (mt.style.height !== h) mt.style.height = h;
+      tick();
+    }
+    function tick() {
+      if (!still) {
+        const r = mt.getBoundingClientRect(), p = dist ? Math.min(1, Math.max(0, -r.top / dist)) : 0, x = -p * dist;
+        track.style.transform = `translate3d(${x.toFixed(1)}px,0,0)`;
+        stage.style.setProperty('--p', p.toFixed(4));
+        let best = 0, bd = 1e9;
+        frames.forEach((f, i) => {
+          const c = f.offsetLeft + f.offsetWidth / 2 + x - innerWidth / 2;
+          f.style.setProperty('--dx', (c * +f.dataset.d).toFixed(1) + 'px');
+          if (Math.abs(c) < bd) { bd = Math.abs(c); best = i; }
+        });
+        cur.textContent = String(best + 1).padStart(2, '0');
+        const k = innerWidth > 1100 ? 1 : 0;
+        loose.forEach(l => { const b = l.getBoundingClientRect(); if (b.bottom < -300 || b.top > innerHeight + 300) return;
+          l.style.setProperty('--py', ((b.top + b.height / 2 - innerHeight / 2) * -l.dataset.s * k).toFixed(1) + 'px'); });
+      }
+    }
+    let q = 0; addEventListener('scroll', () => { if (!q) q = requestAnimationFrame(() => { q = 0; tick(); }); }, { passive: true });
+    // touch screens: the toolbar sliding in and out fires resize on every scroll turn; only a real width change re-measures
+    let rs, rw = innerWidth; const coarse = matchMedia('(pointer: coarse)').matches;
+    addEventListener('resize', () => { if (coarse && innerWidth === rw) return; rw = innerWidth; clearTimeout(rs); rs = setTimeout(size, 120); });
+    addEventListener('load', size); document.fonts && document.fonts.ready.then(size); size();
+
+    // velvet sheen: follows the pointer with a little lag; on touch screens it wanders slowly by itself
+    const sh = document.querySelector('.sheen'); let mx = .72, my = .3, tx = mx, ty = my, touch = matchMedia('(pointer: coarse)').matches;
+    addEventListener('pointermove', e => { if (e.pointerType === 'mouse') { tx = e.clientX / innerWidth; ty = e.clientY / innerHeight; } }, { passive: true });
+    if (!still) (function loop(t) {
+      if (touch) { tx = .5 + .32 * Math.sin(t / 5200); ty = .4 + .25 * Math.sin(t / 7300); }
+      mx += (tx - mx) * .06; my += (ty - my) * .06;
+      sh.style.setProperty('--mx', (mx * 100).toFixed(2) + '%'); sh.style.setProperty('--my', (my * 100).toFixed(2) + '%');
+      requestAnimationFrame(loop);
+    })(0);
+
+    // footer stars: Package 1's night (same sizes, colour, twinkle and the odd shooting star), only behind Casting & bookings.
+    // Drawn only while the footer is on screen; reduced motion gets one still frame.
+    const foot = document.querySelector('footer'), cv = foot.querySelector('.stars'), c = cv.getContext('2d');
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    let W = 0, H = 0, stars = [], on = false, last = 0, T = 0, shoot = null, next = 3;
+    function build() {
+      const d = Math.min(devicePixelRatio || 1, 2), w = foot.offsetWidth, h = foot.offsetHeight;
+      if (w === W && h === H) return; W = w; H = h;
+      cv.width = W * d; cv.height = H * d; c.setTransform(d, 0, 0, d, 0, 0);
+      stars = Array.from({ length: Math.round(W * H / (W < 760 ? 4000 : 3000)) }, () =>
+        ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() < .06 ? rnd(1.1, 1.7) : rnd(.35, .95), tw: rnd(0, 6.28), sp: rnd(.6, 2.2) }));
+      draw(0);
+    }
+    function draw(dt) {
+      T += dt; c.clearRect(0, 0, W, H);
+      for (const s of stars) {
+        const a = still ? .7 : .45 + .55 * Math.sin(T * s.sp + s.tw) ** 2;
+        c.fillStyle = `rgba(255, 250, 238, ${a * .9})`; c.beginPath(); c.arc(s.x, s.y, s.r, 0, 7); c.fill();
+        if (s.r > 1.1) { c.fillStyle = `rgba(255, 244, 220, ${a * .12})`; c.beginPath(); c.arc(s.x, s.y, s.r * 4, 0, 7); c.fill(); }
+      }
+      if (still) return;
+      next -= dt;
+      if (!shoot && next < 0) { shoot = { x: rnd(W < 760 ? .5 : .3, W < 760 ? .95 : .62) * W, y: rnd(.2, .55) * H, t: 0 }; next = rnd(5, 11); }
+      if (shoot) { const s = shoot; s.t += dt; const p = s.t / .9;
+        if (p >= 1) shoot = null; else { const hx = s.x - p * 260, hy = s.y + p * 110;
+          const g = c.createLinearGradient(hx, hy, hx + 90, hy - 38); g.addColorStop(0, `rgba(255,250,235,${.8 * (1 - p)})`); g.addColorStop(1, 'rgba(255,250,235,0)');
+          c.strokeStyle = g; c.lineWidth = 1.2; c.beginPath(); c.moveTo(hx, hy); c.lineTo(hx + 90, hy - 38); c.stroke(); } }
+    }
+    function run(now) { if (!on) return; draw(Math.min(.05, (now - last) / 1000)); last = now; requestAnimationFrame(run); }
+    new ResizeObserver(build).observe(foot); build();
+    if (!still) new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !on) { on = true; last = performance.now(); requestAnimationFrame(run); } else if (!e.isIntersecting) on = false;
+    }).observe(foot);
+  })();
+</script>
+<script src="assets/ana.js"></script>
+</body>
+</html>
